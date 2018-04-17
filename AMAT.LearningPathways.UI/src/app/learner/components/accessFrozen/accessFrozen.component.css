@@ -1,0 +1,19 @@
+.message-box{
+    border: 0.1px solid darkgreen;
+    padding: 20px;
+    background-color: beige;
+    /* margin-top: 0px; */
+    margin: 10px;
+    }
+
+    .send-email-link {
+        font-weight: bold !important;
+    }
+
+    p{
+        font-size: large;
+    }
+
+    img{
+        width:100%;
+    }

@@ -1,0 +1,122 @@
+
+<div class="container-fluid course-summary-box">
+  <!-- title start -->
+  <div class="course-summary-header">
+
+    <div class="row">
+      <div class="col-xs-6 text-left title">
+        <span>{{courseListTitle}}</span>
+      </div>
+      <div class="col-xs-4"></div>
+      <div class="col-xs-1 text-right padding-2">
+        <summation-badge [inputCourseList]="requiredDndCourseList"></summation-badge>
+      </div>
+    </div>
+  </div>
+  <!-- title ends -->
+
+  <!-- body1 start -->
+  <div class="course-summary-body dnd-container required-course-container" [dragula]='"required-courses"' [dragulaModel]='requiredDndCourseList'>
+    <div class="row move" *ngFor="let c of requiredDndCourseList" [attr.data-id]="c.CourseId">
+      
+      <div class="col-xs-3 text-left padding-right-0">
+          <span data-toggle="tooltip" title={{c.CourseTypeDesc}} trigger='hover' placement='left' [ngClass]="{'basic':c.CourseType==='Basic','intermediate':c.CourseType==='Intermediate','advance':c.CourseType==='Advanced','no-course-type': c.CourseType==='notype'}"></span>
+        <span>{{c.CourseId}}</span>
+      </div>
+      <div class="col-xs-3 text-left padding-left-0">
+        <a class="course" href="" (click)="modal.show($event,c.CourseId,false,undefined,c.IsMandatory)">{{c.CourseName}}</a>
+      </div>
+      <!-- <div class="col-xs-1"> </div> -->
+
+      <div class="col-xs-4 text-left padding-left-0">
+        <span>{{c.CompetencyList.join()}}</span>
+      </div>
+      <!-- <div class="col-xs-1"> </div> -->
+      <div class="col-xs-1 text-right padding-2">
+        <span class="duration">{{c.Duration}} h</span>
+      </div>
+      <div class="col-xs-1 text-left padding-2" [hidden]="!isRequired">
+        <span class="glyphicon glyphicon-asterisk mandatoryStar" aria-hidden="true"></span>
+      </div>
+      <!-- <div class="col-xs-1 text-center">
+          
+           
+          </div> -->
+    </div>
+  </div>
+  <!-- placeHolder -->
+  <div *ngIf="requiredDndCourseList.length === 0">
+      <div [dragula]='"required-courses"' [dragulaModel]='requiredDndCourseList' class="dropbag required-course-container">
+        <div class="col-xs-12 center-content">
+          <img src="" alt="">
+        </div>
+      </div>
+    </div>
+   <hr />
+
+   <!-- header2 start -->
+   <div class="course-summary-header">
+      
+          <div class="row">
+            <div class="col-xs-5 text-left title">
+              <span>Next year required courses (as per cutoff) </span>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="col-xs-1 text-right padding-2">
+              <summation-badge [inputCourseList]="nextYearCourseList"></summation-badge>
+            </div>
+          </div>
+        </div>
+        <!-- header2 ends -->
+  <!-- body2 start -->
+  
+  <div class="course-summary-body dnd-container nextyear-course-container" [dragula]='"required-courses"' [dragulaModel]='nextYearCourseList'>
+    <div class="row move" *ngFor="let c of nextYearCourseList" [attr.data-id]="c.CourseId">
+      
+      <div class="col-xs-3 text-left padding-right-0">
+          <span data-toggle="tooltip" title={{c.CourseTypeDesc}} trigger='hover' placement='left' [ngClass]="{'basic':c.CourseType==='Basic','intermediate':c.CourseType==='Intermediate','advance':c.CourseType==='Advanced','no-course-type': c.CourseType==='notype'}"></span>
+        <span>{{c.CourseId}}</span>
+      </div>
+      <div class="col-xs-3 text-left padding-left-0">
+        <a class="course" href="" (click)="modal.show($event,c.CourseId,false,undefined,c.IsMandatory)">{{c.CourseName}}</a>
+      </div>
+      <!-- <div class="col-xs-1"> </div> -->
+
+      <div class="col-xs-4 text-left padding-left-0">
+        <span>{{c.CompetencyList.join()}}</span>
+      </div>
+      <!-- <div class="col-xs-1"> </div> -->
+      <div class="col-xs-1 text-right padding-2">
+        <span class="duration">{{c.Duration}} h</span>
+      </div>
+      <div class="col-xs-1 text-left padding-2" [hidden]="!isRequired">
+        <span class="glyphicon glyphicon-asterisk mandatoryStar" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+   <!-- placeHolder -->
+  <div *ngIf="nextYearCourseList.length === 0">
+      <div [dragula]='"required-courses"' [dragulaModel]='nextYearCourseList' class="dropbag nextyear-course-container">
+        <div class="col-xs-12 center-content">
+          <img src="" alt="">
+        </div>
+      </div>
+    </div>
+
+  <!-- <button (click)="msgModal.show($event)"></button> -->
+
+</div>
+
+<app-modal #modal></app-modal>
+<msg-model-popup #msgModal>
+  <div class="app-modal-header">
+    <span>CutOff Hours Warning !!</span>
+  </div>
+  <div class="app-modal-body">
+    <span>{{message}}</span>
+  </div>
+  <div class="app-modal-footer text-center">
+      <button type="button" (click)="hideDialog($event)"  class="btn btn-primary">OK</button>
+  </div>
+
+</msg-model-popup>

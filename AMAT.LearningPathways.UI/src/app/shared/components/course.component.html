@@ -1,0 +1,56 @@
+<div [@isVisibleChanged]="isVisible" class="course-box">
+    <div class="container-fluid">
+
+        <div class="row" *ngFor="let c of courseList">
+            <div *ngIf="c.IsCourseCompleted===true" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-left">
+                <i id="completedCourse" class="material-icons completed-course-button" data-toggle="tooltip" title="Can not add already completed course to curriculum."
+                    trigger='hover' data-container="body" data-placement='top'>block</i>
+            </div>
+            <div *ngIf="c.IsCourseCompleted===false" class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-left">
+                <i id="added" class="material-icons added-check-box" [ngClass]="{'hidden':c.IsSelected===false}" data-toggle="tooltip" title="Course already added to curriculum."
+                    trigger='hover' data-container="body" data-placement='top'>check_circle</i>
+                <i id="add" class="material-icons add-check-box" [ngClass]="{'hidden':c.IsSelected===true}" data-toggle="tooltip" title="Add course to curriculum"
+                    trigger='hover' data-container="body" data-placement='top' (click)="addCourse($event,c)">add_circle</i>
+                <!-- <span [ngClass]="{'hidden':c.IsSelected===false}" data-toggle="tooltip" title="Course already added to curriculum." trigger='hover' data-container="body" data-placement='top' class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+                <span [ngClass]="{'hidden':c.IsSelected===true}" data-toggle="tooltip" title="Add course to curriculum" trigger='hover' data-container="body" data-placement='top' (click)="addCourse($event,c)" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> -->
+
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 course-id-block">
+                <span data-toggle="tooltip" title={{c.CourseTypeDesc}} trigger='hover' data-container="body" data-placement='top' [ngClass]="{'basic':c.CourseType==='basic','intermediate':c.CourseType==='intermediate','advance':c.CourseType==='Advanced','no-course-type': c.CourseType==='notype'}"></span>
+                <!-- <label class="pde">{{c.CourseId}}</label> -->
+                <label data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" title="" (mouseenter)="showTooltip($event,c)"
+                    (mouseleave)="hideTooltip($event)" trigger='manual' data-placement='top' class="pde" [ngClass]="{'strike-course':c.IsCourseCompleted===true}">{{c.CourseId}}</label>
+
+            </div>
+
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 course-name-bock">
+                <!-- <a class="course" href="#" data-toggle="modal" (click)="modal.show($event,c.CourseId,true,callBackFunc,c.IsMandatory)">{{c.CourseName}}</a> -->
+                <a class="course" href="#" data-toggle="modal" (click)="showCourseDetails($event,c)">{{c.CourseName}}</a>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+                <label class="customer">{{c.CompetencyList.join(', ')}}</label>
+            </div>
+
+            <div class="col-xs-1">
+
+                <label class="customer">{{c.BasePrice | currency:'USD':'symbol':'.0-2'}}</label>
+            </div>
+
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-center duration-bock">
+                <!-- <span class="duration">{{c.Duration}} h</span> -->
+                <span data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" title="" trigger='manual' (mouseenter)="showTooltip($event,c)"
+                    (mouseleave)="hideTooltip($event)" data-placement='top' class="duration" [ngClass]="{'strike-course':c.IsCourseCompleted===true}">{{c.Duration}} h</span>
+
+            </div>
+            <!-- <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 text-right">
+                <span (click)="addCourse(c)" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+
+            </div> -->
+
+
+        </div>
+
+    </div>
+</div>
+<!-- <app-modal #modal></app-modal> -->

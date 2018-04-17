@@ -1,0 +1,55 @@
+<div class="">
+<div class="">
+  <mat-input-container>
+    <input matInput placeholder="Search employee" #input>
+  </mat-input-container>
+</div>
+
+
+  <mat-table class="" [dataSource]="employeeDataSource" matSort matSortActive="employeeName" matSortDirection="desc">
+    <ng-container matColumnDef="employeeId">
+      <mat-header-cell *matHeaderCellDef>Employee ID
+      </mat-header-cell>
+      <mat-cell  *matCellDef="let employee">{{employee.EmployeeID}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="employeeName">
+      <mat-header-cell *matHeaderCellDef >Employee Name
+      </mat-header-cell>
+      <mat-cell *matCellDef="let employee">{{employee.EmployeeName}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="workEmail">
+      <mat-header-cell *matHeaderCellDef >Work-Email
+      </mat-header-cell>
+      <mat-cell *matCellDef="let employee">{{employee.WorkEmail}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="isPathwayBlocked">
+        <mat-header-cell *matHeaderCellDef>Pathway Blocked</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.IsPathwayBlocked}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="hasLearnerFrozen">
+          <mat-header-cell *matHeaderCellDef>Learner Frozen</mat-header-cell>
+          <mat-cell *matCellDef="let employee">{{employee.HasLearnerFrozen}}</mat-cell>
+        </ng-container>
+
+    <ng-container matColumnDef="buttons">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let employee" (click)="$event.stopPropagation()">
+        <button class="btn btn-primary" (click)="openEmployeeDetail(employee)">Edit</button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumn"></mat-row>
+  </mat-table>
+
+  <div class="text-center spinner-container" *ngIf="employeeDataSource.isLoading | async">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <!-- <div class="no-results" [hidden]="employeeDataSource.length > 0">
+        No results
+      </div> -->
+
+  <mat-paginator [length]="employeeDataSource.totalCount" [pageSize]="10" [pageSizeOptions]="[5,10,20,50]" [showFirstLastButtons]="true"></mat-paginator>
+</div>

@@ -1,0 +1,85 @@
+<div class="panel panel-default">
+  <div class="panel panel-heading">Customize your process engineering path</div>
+  <div class="panel-body">
+    <div>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#foundational" aria-controls="#foundational" role="tab" data-toggle="tab">Foundational</a>
+        </li>
+        <li role="presentation">
+          <a href="#functional" aria-controls="#functional" role="tab" data-toggle="tab">Functional</a>
+        </li>
+        <li role="presentation">
+          <a href="#enrichment" aria-controls="#enrichment" role="tab" data-toggle="tab">Enrichment</a>
+        </li>
+
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="foundational">
+          <div class="panel panel-default">
+            <div class="panel-heading">Selected Courses in Curriculum</div>
+            <div class="panel-body">
+              <mandatory-course [inputMandatoryCurriculumList]="foundationCurriculumList"></mandatory-course>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Courses Avaliable</h3>
+            </div>
+            <div class="panel-body">
+              <available-course [curriculumList]="foundationCurriculumList"></available-course>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="functional">
+          <div role="tabpanel" class="tab-pane" id="foundational">
+            <div class="panel panel-default">
+              <div class="panel-heading">Selected Courses in Curriculum</div>
+              <div class="panel-body">
+                <mandatory-course [inputMandatoryCurriculumList]="funcCurriculumList"></mandatory-course>
+
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Courses Avaliable</h3>
+              </div>
+
+              <div class="panel-body">
+                <available-course [curriculumList]="funcCurriculumList"></available-course>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--  end of functional tab -->
+
+        <div role="tabpanel" class="tab-pane" id="enrichment">
+          <div class="panel panel-default">
+            <div class="panel-heading">Selected Courses in Curriculum</div>
+            <div class="panel-body">
+              <mandatory-course [inputMandatoryCurriculumList]="enrichmentCurriculumList"></mandatory-course>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Courses Avaliable</h3>
+            </div>
+            <div class="panel-body">
+              <available-course [curriculumList]="enrichmentCurriculumList"></available-course>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  end of enrichment tab -->
+    </div>
+
+    <button class="btn btn-primary" (click)="saveChanges($event)">Save Changes</button>
+  </div>
+</div>

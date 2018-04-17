@@ -1,0 +1,94 @@
+<div style="font-size:12px;font-weight: normal">
+  
+  <form class="mat-dialog-content" [formGroup]="courseForm">
+      
+    <div class="formField row">
+      <label class="col-md-3">AGU Code</label>
+      <span class="col-md-9">
+          <input type="hidden" formControlName="AGU_CODE" >
+          <span>{{ courseForm.get('AGU_CODE').value }}</span>
+          <!-- <input class="form-control" style="width:200px;" id="courseId" readonly="true" type="text" formControlName="CourseID"> -->
+      </span>
+    </div>
+
+    <div class="formField row">
+      <label class="col-md-3">Course Name</label>
+      <span class="col-md-9">
+          <input type="hidden" formControlName="CourseName" >
+          <span>{{ courseForm.get('CourseName').value }}</span>
+      </span>
+    </div>
+
+    <div class="formField row">
+      <label class="col-md-3">Course Description</label>
+      <span class="col-md-9">
+          <input type="hidden" formControlName="CourseDescription">
+          <span>{{ courseForm.get('CourseDescription').value }}</span>
+      </span>
+    </div>
+
+
+    <div class="formField row">
+        <label class="col-md-3">Competency Name</label>
+        <span class="col-md-9">
+            <input type="hidden" formControlName="CompetencyName">
+            <span>{{ courseForm.get('CompetencyName').value == '' ? '-' : courseForm.get('CompetencyName').value }}</span>
+        </span>
+      </div>
+    
+      <div class="formField row">
+          <label class="col-md-3">Environment</label>
+          <span class="col-md-9">
+              <input type="hidden" formControlName="Environment">
+              <span>{{ courseForm.get('Environment').value }}</span>
+          </span>
+        </div>
+    
+        <div class="formField row">
+            <label class="col-md-3">Skill Name</label>
+            <span class="col-md-9">
+                <mat-form-field style="font-size:12px;">
+                    <mat-select formControlName="Skill_Name">
+                      <mat-option *ngFor="let skill of skills" [value]="skill">
+                        {{ skill }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </span>
+          </div>
+
+          <div class="formField row">
+              <label class="col-md-3">Duration</label>
+              <span class="col-md-9">
+                  <input type="hidden" formControlName="Duration">
+                  <span>{{ courseForm.get('Duration').value }} hr</span>
+              </span>
+            </div>
+
+            <div class="formField row">
+                <label class="col-md-3">Base Price</label>
+                <span class="col-md-9">
+                    <input type="hidden" formControlName="BasePrice">
+                    <span>{{ courseForm.get('BasePrice').value | currency }}</span>
+                </span>
+              </div>
+
+    <div class="formFieldRadio">
+        <label class="col-md-3">Active</label>
+        <span class="col-md-9"> 
+            <mat-radio-group fxLayout fxLayoutAlign="center center" fxLayoutGap="30px" id="isDeactivated" formControlName="IS_DEACTIVATED">
+                <mat-radio-button value="0">Yes</mat-radio-button>
+                <mat-radio-button value="1">No</mat-radio-button>
+              </mat-radio-group>
+        </span>
+        
+      </div>
+
+      <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10 text-center">
+            <button type="Update" class="btn btn-large btn-primary" [disabled]="!courseForm.valid" (click)="updateCourse()">Update</button>
+          </div>
+      </div>
+
+  </form>
+</div>

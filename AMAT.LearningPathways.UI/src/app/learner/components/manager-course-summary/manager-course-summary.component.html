@@ -1,0 +1,55 @@
+<div class="container-fluid course-summary-box">
+    <!-- title start -->
+    <div class="course-summary-header">
+
+        <div class="row">
+            <div class="col-xs-3 text-left title">
+                <span>{{courseListTitle}}</span>
+            </div>
+            <div class="col-xs-6"></div>
+            <div class="col-xs-2 text-right padding-2">
+                <summation-badge [inputCourseList]="notCompletedCourseList"></summation-badge>
+            </div>
+
+            <div class="col-xs-1 text-right padding-2">
+                <span class="badge" [ngClass]="{'zero-summation':notCompletedCourseList?.length === 0}">${{totalCost}}</span>
+            </div>
+
+        </div>
+    </div>
+    <!-- title ends -->
+
+    <!-- body start -->
+    <div class="course-summary-body">
+        <div class="row" *ngFor="let c of courseList">
+
+            <div class="col-xs-2 text-left padding-right-0">
+                <span data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" title="" trigger='manual' data-placement='top' class="pde" [ngClass]="{'strike-course':c.IsCourseCompleted===true}">{{c.CourseId}}</span>
+            </div>
+            <div class="col-xs-3 text-left padding-left-0">
+                <a class="course" href="" (click)="modal.show($event,c.CourseId,false,undefined,c.IsMandatory)">{{c.CourseName}}</a>
+            </div>
+
+
+            <div class="col-xs-4 text-left padding-left-0">
+                <span>{{c.CompetencyList.join()}}</span>
+            </div>
+
+            <div class="col-xs-2 text-right padding-2">
+                <span data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" title="" trigger='manual' data-placement='top' class="duration" [ngClass]="{'strike-course':c.IsCourseCompleted===true}">{{c.Duration}} h</span>
+                <span [style.visibility]="!c.IsMandatory ? 'hidden' : 'visible'" class="glyphicon glyphicon-asterisk mandatoryStar" aria-hidden="true"></span>
+            </div>
+            <!-- <div class="col-xs-1 text-left padding-2" [style.visibility]="!c.IsMandatory ? 'hidden' : 'visible'">
+                <span class="glyphicon glyphicon-asterisk mandatoryStar" aria-hidden="true"></span>
+            </div> -->
+            <div class="col-xs-1 text-right cost padding-2">
+                <span>${{c.BasePrice}}</span>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<app-modal #modal></app-modal>

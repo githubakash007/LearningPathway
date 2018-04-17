@@ -1,0 +1,40 @@
+ul.Info{
+	list-style-type: none;
+    padding: 0;
+    display: table;
+    width: 100%;
+    margin: 30px 0px;
+}
+
+ul.Info li{
+	font-family: "Open Sans";
+    list-style-type: none;
+    margin: 0px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: normal;
+    padding-left: 15px;
+	padding-bottom: 15px;
+    border-left: 1px solid #ccc;
+	position: relative;
+	line-height: 80%;
+}
+ul.Info li:before {
+    content: '';
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #DFE0E0;
+    border-radius: 50%;
+    left: -4px;
+    top: 2px;
+}
+ul.Info li:last-child{
+	padding-bottom: 0px;
+}
+ul.Info li.Active{
+	font-weight: 600;
+}
+ul.Info li.Active:before {
+    background: #53565A;
+}

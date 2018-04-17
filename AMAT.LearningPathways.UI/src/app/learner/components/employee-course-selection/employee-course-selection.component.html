@@ -1,0 +1,101 @@
+<div>
+    <div class="row">
+        <div class="col-xs-12 emp-details">
+            <ul>
+                <li>
+                    <p class="text-center"><i class="glyphicon glyphicon-user"></i> {{currentEmployee.EMPLOYEE_NAME}} ( {{currentEmployee.ROLE_NAME}} ) </p>
+                </li>
+                <li>
+                    <p class="text-center">Total hours of studies:<b>&nbsp;{{totalSelectedCourseHours | number:'1.1-1'}} h</b> &nbsp;(out of 40 max)</p>
+                </li>
+                <li>
+                    <p class="text-center"><b>TOTAL COST:&nbsp;{{currentEmployee.TOTAL_PATHWAY_COST | currency:'USD':'symbol':'.0-2'}}</b></p>
+                </li>
+                <li>
+                    <p class="text-center">
+                        <button *ngIf="hideSuggestChangesButton" (click)="suggestChange($event)" class="btn-suggest-change">SUGGEST CHANGE</button>
+                        <button *ngIf="hideApproveButton" class="btn-approve" (click)="approve($event)">APPROVE</button>
+                    </p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div>
+        <div id="summeryBody" class="summary-body">
+            <div class="row">
+                <manager-course-summary [inputLearnerCourseList]="foundationalCourseList" [title]="'Foundational Skills'">
+                </manager-course-summary>
+            </div>
+            <!-- <hr /> -->
+            <div class="row">
+                <manager-course-summary [inputLearnerCourseList]="functionalCourseList" [title]="'Functional Skills'">
+                </manager-course-summary>
+            </div>
+            <!-- <hr /> -->
+            <!-- <div class="row well">
+                <div class="row user-note">
+                    <span class="col-xs-1 text-center user-note-heading"><b>Note:</b></span>
+                    <span class="col-xs-11">Your report has selected either classroom or external enrichment courses as part of their pathway this year. Please be aware of costs applicable to your cost center for taking these courses.<b> Each edX or Coursera course selected has a <span class="highlight-cost">$99</span>                    cost associated with it. so the total cost of the pathway selected is <span class="highlight-cost">${{costOfEnrichmentCourses}}</span>.</b> By clicking ‘approve’ you will authorize your report to take these classes and invest the appropriate
+                    amount of time in the learning activity they have chosen. </span>
+                </div>
+                <manager-course-summary [inputLearnerCourseList]="enrichmentCourseList" [title]="'Enrichment'">
+                </manager-course-summary>
+            </div> -->
+            <div class="row">
+                <manager-course-summary [inputLearnerCourseList]="enrichmentCourseList" [title]="'Enrichment'">
+                </manager-course-summary>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-xs-12">
+                <p class="text-center"><b>Total hours of studies:&nbsp;{{totalSelectedCourseHours | number:'1.1-1'}} h </b>(out of 40 max)</p>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+
+<msg-model-popup [inputModalPopupSizeClass]="'modal-md'" #msgModal>
+    <div class="app-modal-header">
+        <button type="button" class="close" (click)="cancelPopUp($event)">&times;</button>
+        <h4 class="modal-title">Suggest Change</h4>
+    </div>
+    <div class="app-modal-body">
+        <div *ngIf="showAlter"><span class="alert-text">Suggest change cannot be empty.</span></div>
+        <div class="col-md-12 well">
+            In a few words, explain why you rejected the pathway, and suggestions for your report to improve it to meet your mutual learning goals. We also suggest having an offline conversation with them.
+        </div>
+        <textarea (focus)="onFocus($event)" class="form-control" rows="10" id="comment" [(ngModel)]='comments'></textarea>
+    </div>
+    <div class="app-modal-footer text-center">
+        <button type="button" (click)="submitComments($event)" class="suggest-change-btn">Send/Submit</button>
+    </div>
+
+</msg-model-popup>
+
+<msg-model-popup [inputModalPopupSizeClass]="'modal-md'" #msgModalApprove>
+    <div class="app-modal-header">
+        <button type="button" class="close" (click)="closeApprove($event)">&times;</button>
+        <h4 class="modal-title">NOTE</h4>
+    </div>
+    <div class="app-modal-body">
+        <div class="col-md-12">
+            Please note the costs that will be charged to your cost center when your report takes the classes listed in their PATHWAY. By clicking approve, you authorize them to take these classes and invest the time and budget towards these learning activities that
+            you have chosen together.
+
+            <div class="col-md-12 text-center">
+                <button type="button" (click)="closeApprove($event)" class="go-back-btn">GO BACK</button>
+                <button type="button" (click)="submitApprove($event)" class="btn-approve">APPROVE</button>
+            </div>
+
+        </div>
+    </div>
+    <!-- <div class="clearfix"></div> -->
+    <div class="app-modal-footer text-center">
+
+        <!-- <button type="button" (click)="closeApprove($event)" class="go-back-btn">GO BACK</button>
+        <button type="button" (click)="submitApprove($event)" class="btn-approve">APPROVE</button> -->
+    </div>
+
+</msg-model-popup>

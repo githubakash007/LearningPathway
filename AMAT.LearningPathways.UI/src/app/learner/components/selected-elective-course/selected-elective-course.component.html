@@ -1,0 +1,64 @@
+<div class="course-list-container">
+
+    <div class="course-list-header">
+        <div class="row">
+            <!-- <div class="col-xs-1 text-left">
+                <span class="course-list-container__span">Electives</span>
+            </div> -->
+            <div class="col-xs-5 text-left" *ngIf="skillName =='Foundational'">
+                <span class="course-list-container__span">Electives</span>
+                <span *ngFor="let i of selectedElectiveCourseList" class="glyphicon glyphicon-ok-sign left-right-2px-padding"></span>
+                <span *ngFor="let i of getCount()" class="glyphicon glyphicon-plus-sign left-right-2px-padding"></span>
+                <!-- </div> -->
+
+            </div>
+            <div class="col-xs-5 text-left" *ngIf="skillName =='Functional'"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-1 text-center">
+                <summation-badge [inputCourseList]="selectedElectiveCourseListForSummation" [isTotalCost]="true" [isTotalDuration]="false"></summation-badge>
+            </div>
+            <div class="col-xs-2 text-center summation-badge">
+                <summation-badge [inputCourseList]="selectedElectiveCourseListForSummation" [isTotalCost]="false" [isTotalDuration]="true"></summation-badge>
+            </div>
+        </div>
+    </div>
+    <div class="course-list-body">
+        <div *ngIf="skillName=='Foundational'" class="row" [hidden]="selectedElectiveCourseList?.length > 0">
+            <div class="col-xs-12">
+                <span class="no-skills">Add {{requiredElectiveCourse}} {{skillName}} skill elective courses to your Pathway to proceed
+                    <!--  .<span class="glyphicon glyphicon-plus-sign GrayFont pull-right" aria-hidden="true"></span> -->
+                </span>
+            </div>
+        </div>
+
+        <div *ngIf="skillName=='Functional'" class="row" [hidden]="selectedElectiveCourseList?.length > 0">
+            <div class="col-xs-12">
+                <span class="no-skills">Add {{skillName}} skill elective courses to your Pathway
+                        <!--  .<span class="glyphicon glyphicon-plus-sign GrayFont pull-right" aria-hidden="true"></span> -->
+                </span>
+            </div>
+        </div>
+        <div class="row" *ngFor="let c of selectedElectiveCourseList">
+            <div class="col-xs-2  text-left">
+                <label data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" title="" trigger='manual' data-placement='top' class="pde" [ngClass]="{'strike-course':c.IsCourseCompleted===true && c.IsCourseDeactivated===false,'strike-course-red':c.IsCourseCompleted===true && c.IsCourseDeactivated===true}">{{c.CourseId}}</label>
+            </div>
+            <div class="col-xs-3  text-left">
+                <a class="course" href="" (click)="modal.show($event,c.CourseId,false,undefined,c.IsMandatory)">{{c.CourseName}}</a>
+            </div>
+            <div class="col-xs-4  text-left">
+                <span class="customer">{{c.CompetencyList.join()}}</span>
+            </div>
+            <div class="col-xs-1 text-center">
+                <span class="duration">{{c.BasePrice | currency:'USD':'symbol':'.0-2'}}</span>
+            </div>
+            <div class="col-xs-2 text-center time-delete">
+                <span data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" title="" trigger='manual' data-placement='top' class="duration" [ngClass]="{'strike-course':c.IsCourseCompleted===true && c.IsCourseDeactivated===false,'strike-course-red':c.IsCourseCompleted===true && c.IsCourseDeactivated===true}">{{c.Duration}} h</span>
+
+                <span (click)="deleteCourse($event,c)" class="glyphicon glyphicon-trash delete-btn" data-toggle="tooltip" data-container="body" title="Remove course" trigger='hover' data-placement='top' aria-hidden="true"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-modal #modal></app-modal>

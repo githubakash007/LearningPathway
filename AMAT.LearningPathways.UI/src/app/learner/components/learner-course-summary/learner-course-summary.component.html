@@ -1,0 +1,55 @@
+<div class="container-fluid course-summary-box">
+    <!-- title start -->
+    <div class="course-summary-header">
+
+        <div class="row">
+            <div class="col-xs-3 text-left title">
+                <span>{{courseListTitle}}</span>
+            </div>
+            <div class="col-xs-7"></div>
+            <div class="col-xs-1 text-right padding-2">
+                <summation-badge [inputCourseList]="courseList" [isTotalCost]="false" [isTotalDuration]="true"></summation-badge>
+            </div>
+            <div class="col-xs-1 text-right padding-2">
+                <summation-badge [inputCourseList]="courseList" [isTotalCost]="true" [isTotalDuration]="false"></summation-badge>
+            </div>
+        </div>
+    </div>
+    <!-- title ends -->
+
+    <!-- body start -->
+    <div class="course-summary-body">
+        <div class="row" *ngFor="let c of courseList">
+
+            <div class="col-xs-3 text-left padding-right-0">
+                <span>{{c.CourseId}}</span>
+            </div>
+            <div class="col-xs-3 text-left padding-left-0">
+                <a class="course" href="" (click)="modal.show($event,c.CourseId,false,undefined,c.IsMandatory)">{{c.CourseName}}</a>
+            </div>
+
+
+            <div class="col-xs-4 text-left padding-left-0">
+                <span>{{c.CompetencyList.join()}}</span>
+            </div>
+
+            <div class="col-xs-1 text-right padding-2">
+                <span class="duration">{{c.Duration}} h</span>
+                <span *ngIf="c.IsMandatory" class="glyphicon glyphicon-asterisk mandatoryStar" aria-hidden="true"></span>
+            </div>
+            <!-- <div class="col-xs-1 text-left padding-2" [hidden]="!c.IsMandatory">
+        <span class="glyphicon glyphicon-asterisk mandatoryStar" aria-hidden="true"></span>
+      </div> -->
+
+            <div class="col-xs-1 text-right padding-2">
+                <span class="duration">{{c.BasePrice | currency:'USD':'symbol':'.0-2'}}</span>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<app-modal #modal></app-modal>

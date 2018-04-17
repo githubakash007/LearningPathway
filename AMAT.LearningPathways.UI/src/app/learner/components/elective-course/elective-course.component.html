@@ -1,0 +1,60 @@
+<div>
+
+    <div class="Path">
+        <div class="history-box">
+            <div class="title">
+                <!-- <span>COURSES RECOMMENDED BY <b> {{employeeName | uppercase}} </b> FOR {{currentSelectedAdminRole | uppercase}} PATHWAY IN 2017 (Last Year)</span> -->
+                <!-- <span>COURSES RECOMMENDED BY SME FOR YOUR PATHWAY</span> -->
+            </div>
+            <div class="row" *ngFor="let c of assignedElectiveCourseList">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="row greenBullet">
+                        <div class="col-xs-1 col-md-1">
+                            <span data-toggle="tooltip" data-container="body" title="Add course to curriculum" trigger='hover' data-placement='top' (click)="addCourse($event,c)" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                            <!-- <span data-toggle="tooltip" data-container="body" data-html="true" data-animation="true"  (click)="addCourse(c)" (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" title="" trigger='manual' data-placement='right' class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> -->
+                        </div>
+
+                        <div class="col-xs-3 col-md-2">
+                            <label data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" title="" (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" trigger='manual' data-placement='top' class="pde" [ngClass]="{'strike-course':c.IsCourseCompleted===true}">{{c.CourseId}}</label>
+
+                        </div>
+                        <div class="col-xs-3 col-md-3">
+                            <a class="course" href="" (click)="modal.show($event,c.CourseId,true,addCourse.bind(this,$event,c),c.IsMandatory)">{{c.CourseName}}</a>
+                        </div>
+                        <div class="col-xs-3 col-md-3">
+
+                            <span class="customer">{{c.CompetencyList.join()}}</span>
+                        </div>
+                        <div class="col-xs-1 text-right">
+                            <span class="duration">{{c.BasePrice | currency:'USD':'symbol':'.0-2'}}</span>
+                        </div>
+                        <div class="col-xs-2 col-md-2 text-center">
+                            <span data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" title="" trigger='manual' (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" data-placement='top' class="duration" [ngClass]="{'strike-course':c.IsCourseCompleted===true}">{{c.Duration}} h</span>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<app-modal #modal></app-modal>
+
+<msg-model-popup [inputModalPopupSizeClass]="'modal-sm'" #msgModal>
+    <!-- <div class="app-modal-header">
+            <span class="text-left">
+                <b>Validation Failed!</b>
+            </span>
+        </div>  -->
+    <div class="app-modal-body">
+        <span>{{validationMessage}}</span>
+    </div>
+    <div class="app-modal-footer text-center">
+        <button type="button" (click)="hideDialog($event)" class="btn btn-primary">OK</button>
+    </div>
+
+</msg-model-popup>

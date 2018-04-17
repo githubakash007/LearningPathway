@@ -1,0 +1,72 @@
+.summary-box{
+    background: #fff;
+    border: 1px solid #ebebe9;
+    /* box-shadow: 0 3px 9px rgba(0, 0, 0, .5); */
+    box-shadow: 0px 2px 5px rgba(234, 234, 234, 0.87);
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.summary-body{
+
+}
+.summary-header-title{
+    font-weight: bold;
+    font-variant: normal;
+    font-size: medium;
+    color:black;
+}
+
+.heading{
+    font-size: 14px;
+}
+
+.mandatoryStar{
+    color: red !important;
+}
+
+a.create-path-btn {
+    border-radius: 100px;
+    background-color: #00B948;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+}
+a.go-back-btn {
+    border-radius: 100px;
+    background-color:lightgray;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+}
+
+.btn-box{
+    width:100%;
+    margin-top:20px;
+}
+
+.error-text{
+    color:red;
+    font-weight: 500;
+}
+
+
+.cutoffHourSection-header{
+    margin-bottom: 5px;
+}
+
+.cutoffHourSection-header-title{
+    font-weight: bold;
+    font-style:normal;
+}
+

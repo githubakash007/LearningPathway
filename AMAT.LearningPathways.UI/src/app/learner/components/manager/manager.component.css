@@ -1,0 +1,190 @@
+.MyApproval {
+    display: block;
+    /* margin: 15px 0px; */
+}
+
+.MyApproval h5 {
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #757575;
+}
+
+.MyApproval p {
+    margin: 10px 0px;
+    padding: 0px;
+    font-size: 14px;
+    color: #757575;
+}
+
+.MyApproval ul {
+    /* margin: 20px 0px; */
+    padding: 0px;
+}
+
+.MyApproval ul li {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.MyApproval ul li a {
+    font-size: 14px;
+    color: #4599c3;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.MyApproval ul li a:hover {
+    text-decoration: none;
+}
+
+.MyApproval .fa {
+    font-size: 15px;
+    color: #8ac00b;
+    margin-right: 10px;
+}
+
+button.btn-back {
+    border-radius: 100px;
+    background-color: #4599C3;
+    color: #fff;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 4px 20px;
+    text-decoration: none;
+    border-color: transparent;
+}
+
+button.btn-approve {
+    border-radius: 100px;
+    background-color: #00B948;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+    border-color: transparent;
+}
+
+button.btn-suggest-change {
+    border-radius: 100px;
+    background-color: #D9D9D6;
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+    border-color: transparent;
+}
+
+.btn-list {
+    padding: 30px;
+}
+
+.alert-text {
+    color: red;
+}
+
+button.go-back-btn {
+    border-radius: 100px;
+    background-color: lightgray;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+}
+
+button.suggest-change-btn {
+    border-radius: 100px;
+    background-color: #4599c3;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+}
+
+.employee-name a {
+    font-size: 14px;
+    color: #4599c3;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.employee-count ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.employee-count ul li.number {
+    color: #53565a;
+    font-family: Open Sans;
+    vertical-align: top;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.total-cost {
+    margin-top: 10px;
+}
+
+.total-cost ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.total-cost ul li.cost {
+    color: #53565a;
+    font-family: Open Sans;
+    vertical-align: top;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.course-list {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.course-list-item {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.approved {
+    color: #29d829;
+}
+
+.pending-approval {
+    color: #f2140d;
+}
+
+.suggested-change {
+    color: #f0ad4e;
+}

@@ -1,0 +1,54 @@
+/* .modal{ z-index: 99999; } */
+
+.modal {
+    background: rgba(0,0,0,0.6);
+    z-index: 2000 !important;
+  }
+
+  /* div.row > div > * {
+    max-width: 100%;
+   } */
+
+   .row-column{
+  padding:4%;
+   }
+
+.row-row{
+ margin-right:5px
+}
+
+
+.add-path{
+  color:green;
+  font-weight:500;
+  cursor:pointer;
+}
+
+.course-name{
+  font-weight: bold;
+}
+
+.course-description{
+  background-color: #fafafa;
+}
+
+button.close{
+  margin-right:5px;
+}
+
+.close-button-margin{
+  margin-right:0px;
+}
+
+.course-metadata{
+  margin-bottom:5px;
+}
+
+.heading{
+  font-weight: 600;
+}
+
+.content{
+  overflow-wrap: break-word;
+  width:fit-content;
+}

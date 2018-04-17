@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <ul class="Details">
+            <li class="YourPath">Your path details</li>
+            <!-- <li class="Time">
+                <span class="Number pull-left">{{totalHours}} </span>
+                <span class="Hours pull-right hours-text">HOURS OF STUDIES</span>
+                <div class="clearfix"></div>
+            </li> -->
+            <li class="Time FullHour">
+                <span class="total-hour-number">{{totalHours}}</span>
+                <span class="Hours">HOURS OF STUDIES</span>
+                <div class="clearfix"></div>
+            </li>
+
+            <li class="Time">
+                <span class="MaxHours">(Out of {{totalHours > maxAllowedHours?totalHours:maxAllowedHours}} h required)</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- <div class="container-fluid">
+    <div class="row">
+        <span class="Details">Your path details</span>
+
+    </div>
+    <div class="row Time">
+        <div class="col-xs-6">
+            <span class="Number">{{totalHours}} </span>
+        </div>
+        <div class="col-xs-6">
+            <span class="Hours">HOURS OF STUDIES</span>
+        </div>
+    </div>
+</div> -->

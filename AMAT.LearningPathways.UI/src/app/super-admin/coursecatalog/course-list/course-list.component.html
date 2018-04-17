@@ -1,0 +1,68 @@
+<div class="">
+
+
+<div class="">
+  <mat-input-container>
+    <input matInput placeholder="Search Course" #input>
+  </mat-input-container>
+</div>
+
+<mat-table class="" [dataSource]="coursedatasource" matSort matSortActive="aguCode" matSortDirection="desc">
+  <ng-container matColumnDef="aguCode">
+    <mat-header-cell *matHeaderCellDef>AGU Code
+    </mat-header-cell>
+    <mat-cell  *matCellDef="let course">{{course.AGU_CODE }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="courseName">
+    <mat-header-cell *matHeaderCellDef >Course Name
+    </mat-header-cell>
+    <mat-cell *matCellDef="let course">{{course.COURSE_NAME}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="environment">
+    <mat-header-cell *matHeaderCellDef >Environment
+    </mat-header-cell>
+    <mat-cell *matCellDef="let course">{{course.ENVIRONMENT}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="skillName">
+    <mat-header-cell *matHeaderCellDef >Skill Name
+    </mat-header-cell>
+    <mat-cell *matCellDef="let course">{{course.SKILL_NAME}}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="duration">
+    <mat-header-cell *matHeaderCellDef >Duration
+    </mat-header-cell>
+    <mat-cell *matCellDef="let course">{{course.DURATION}} hr</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="basePrice">
+      <mat-header-cell *matHeaderCellDef>Base Price</mat-header-cell>
+      <mat-cell *matCellDef="let course">{{course.BASE_PRICE | currency}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="isDeactivated">
+        <mat-header-cell *matHeaderCellDef>Active</mat-header-cell>
+        <mat-cell *matCellDef="let course" >{{course.IS_DEACTIVATED == 0 ? "Yes" : "No"}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="buttons">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let employee" (click)="$event.stopPropagation()" >
+          <button class="btn btn-primary" (click)="openEmployeeDetail(employee)">Edit</button>
+        </mat-cell>
+      </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
+  <mat-row *matRowDef="let row; columns:displayedColumn"></mat-row>
+</mat-table>
+
+<div class="text-center spinner-container" *ngIf="coursedatasource.isLoading | async">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <!-- <div class="no-results" [hidden]="employeeDataSource.length > 0">
+      No results
+    </div> -->
+
+<mat-paginator [length]="coursedatasource.totalCount" [pageSize]="10" [pageSizeOptions]="[5,10,20,50]" [showFirstLastButtons]="true"></mat-paginator>
+
+
+</div>

@@ -1,0 +1,210 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Nav tabs -->
+        <div class="col-md-2">
+
+            <total-hours></total-hours>
+            <breadcrumb-skill></breadcrumb-skill>
+
+        </div>
+
+        <div class="col-md-9 tab">
+                <div class="header-rolename">
+                        <!-- <span _ngcontent-c3="">create a </span><i><span>{{currentSelectedAdminRole}}</span></i> <span>pathway for 2018</span> -->
+                        <span>create a {{currentSelectedAdminRole}} pathway for 2018</span>
+                </div>
+            <ul class="nav nav-tabs" role="tablist" id="pathwayTab">
+                <li role="presentation" class="nav-item col-md-6 active" id="lifoundational">
+                    <a href="#foundational" aria-controls="#foundational" role="tab" data-toggle="tab" class="nav-link">Foundational Skills</a>
+                </li>
+                <li role="presentation" class="nav-item col-md-6" id="lifunctional">
+                    <a href="#functional" aria-controls="#functional" role="tab" data-toggle="tab" class="nav-link ">Functional Skills</a>
+                </li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div id="pathwayTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="foundational">
+
+                    <div>
+                        <div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="foundationalMandatoryCoursesHeading">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#foundationalMandatoryCourses" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                                Mandatory Foundational Courses
+                                            </a>
+                                    </h4>
+                                </div>
+                                <div id="foundationalMandatoryCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalMandatoryCoursesHeading">
+                                    <div class="panel-body">
+                                        <mandatory-course [inputMandatoryCurriculumList]="foundationCurriculumList" [skillId]="1"></mandatory-course>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="box-margin"></div> -->
+                        <div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="foundationalElectiveCoursesHeading">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#foundationalElectiveCourses" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                            Foundational Elective Courses
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="foundationalElectiveCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalElectiveCoursesHeading">
+                                    <div class="panel-body">
+                                        <available-course [curriculumList]="foundationCurriculumList" [skillId]="1"></available-course>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h4 class="Next">Choose foundational courses from the catalog below for the pathway. When ready, proceed to select functional courses.</h4>
+
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-4 col-md-offset-4">
+                                <a href="#" (click)=" navigateTab($event)" class="NextButton">Proceed &gt;</a>
+                            </div>
+                        </div>
+                        <div [hidden]="foundationalHistoryCurriculumList?.length === 0">
+                            <div class="box-margin"></div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="foundationalHistoryCoursesHeading">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#foundationalHistoryCourses" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                            <!-- COURSES RECOMMENDED BY FOR PATHWAY IN 2017 (Last Year) -->
+                                            <span>COURSES RECOMMENDED BY <b> {{employeeName | uppercase}} </b> FOR {{currentSelectedAdminRole | uppercase}} PATHWAY IN 2017 (Last Year)</span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="foundationalHistoryCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalHistoryCoursesHeading">
+                                    <div class="panel-body">
+                                        <lastyear-courses [historyCurriculumList]="foundationalHistoryCurriculumList" [skillId]="1"></lastyear-courses>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="courseCatalog" [hidden]="foundationalHistoryCurriculumList?.length > 0">
+                            <div class="box-margin"></div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="foundationalCourseCatalogHeading">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" href="#foundationalCourseCatalog" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                                Choose courses from the below course catalog
+                                            </a>
+                                    </h4>
+                                </div>
+                                <div id="foundationalCourseCatalog" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalCourseCatalogHeading">
+                                    <div class="panel-body">
+                                        <course-catalog [skillId]="'1'"></course-catalog>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="functional">
+                    <div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="functionalMandatoryCoursesHeading">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#functionalMandatoryCourses" aria-expanded="true" aria-controls="functionalCourses" class="trigger in">
+                                        Mandatory Functional Courses
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="functionalMandatoryCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="functionalMandatoryCoursesHeading">
+                                <div class="panel-body">
+                                    <mandatory-course [inputMandatoryCurriculumList]="funcCurriculumList" [skillId]="2"></mandatory-course>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="functionalElectiveCoursesHeading">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#functionalElectiveCourses" aria-expanded="true" aria-controls="functionalCourses" class="trigger in">
+                                        Functional Elective Courses
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="functionalElectiveCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="functionalElectiveCoursesHeading">
+                                <div class="panel-body">
+                                    <available-course [curriculumList]="funcCurriculumList" [skillId]="2"></available-course>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h4 class="Next">When you are ready, proceed to finalizing the pathway</h4>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="btn-box">
+                                <a href="#" (click)="navigateBack($event)" class="go-back-btn">&lt; BACK</a>
+                                <a href="#" [routerLink]="['./../summary']" class="finalize-btn">FINALIZE &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lastYearCourse" [hidden]="functionalHistoryCurriculumList?.length ===0">
+                        <div class="box-margin"></div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="functionalHistoryCoursesHeading">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#functionalHistoryCourses" aria-expanded="true" aria-controls="functionalCourses" class="trigger in">
+                                        <span>COURSES RECOMMENDED BY <b> {{employeeName | uppercase}} </b> FOR {{currentSelectedAdminRole | uppercase}} PATHWAY IN 2017 (Last Year)</span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="functionalHistoryCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="functionalHistoryCoursesHeading">
+                                <div class="panel-body">
+                                    <lastyear-courses [historyCurriculumList]="functionalHistoryCurriculumList" [skillId]="2"></lastyear-courses>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="courseCatalog" [hidden]="functionalHistoryCurriculumList?.length > 0">
+                        <div class="box-margin"></div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="functionalCourseCatalogHeading">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#functionalCourseCatalog" aria-expanded="true" aria-controls="functionalCourses" class="trigger in">
+                                                Choose courses from the below course catalog
+                                            </a>
+                                </h4>
+                            </div>
+                            <div id="functionalCourseCatalog" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="functionalCourseCatalogHeading">
+                                <div class="panel-body">
+                                    <course-catalog [skillId]="'2'"></course-catalog>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--  end of functional tab -->
+
+
+            </div>
+            <!--  end of enrichment tab -->
+        </div>
+    </div>
+
+</div>

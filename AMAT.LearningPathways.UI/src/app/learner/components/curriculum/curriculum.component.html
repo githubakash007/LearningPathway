@@ -1,0 +1,265 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Nav tabs -->
+        <div class="col-md-2">
+
+            <learner-total-hours></learner-total-hours>
+            <learner-breadcrumb-skill></learner-breadcrumb-skill>
+            <!-- <div>
+                <a href='#'>Go to summary page</a>
+            </div> -->
+
+        </div>
+
+
+        <div class="col-xs-9 tab">
+            <div class="header-rolename">
+                <span>customize your {{employeeRoleName}} path</span>
+            </div>
+
+            <ul class="nav nav-tabs" role="tablist" id="pathwayLearnerTab">
+                <li role="presentation" class="nav-item col-md-4 active" [ngClass]="{'tab-completed':isTabCompleted('Foundational')}" id="lifoundational">
+                    <a href="#foundational" aria-controls="#foundational" role="tab" data-toggle="tab" class="nav-link">Foundational Skills
+                    <!-- <img src="/assets/images/CheckMark.svg" /> -->
+                    <i class="material-icons" [hidden] ="!isTabCompleted('Foundational')">check</i>
+                </a>
+                </li>
+                <li role="presentation" class="nav-item col-md-4" [ngClass]="{'tab-completed':isTabCompleted('Functional')}" id="lifunctional">
+                    <a href="#functional" aria-controls="#functional" role="tab" data-toggle="tab" class="nav-link ">Functional Skills
+                            <i class="material-icons" [hidden] ="!isTabCompleted('Functional')">check</i>
+                    </a>
+                </li>
+                <li role="presentation" class="nav-item col-md-4" [ngClass]="{'tab-completed':isTabCompleted('Enrichment')}" id="lienrichment">
+                    <a href="#enrichment" aria-controls="#enrichment" role="tab" data-toggle="tab" class="nav-link ">Enrichment
+                            <i class="material-icons" [hidden] ="!isTabCompleted('Enrichment')">check</i>
+                    </a>
+                </li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div id="pathwayLearnerTabContent" class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="foundational">
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="foundationalHeading">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#foundationalCourses" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                        Mandatory Foundational Courses
+                                    </a>
+                            </h4>
+                        </div>
+                        <div id="foundationalCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalHeading">
+                            <div class="panel-body">
+                                <learner-mandatory-course [inputMandatoryCourseList]="foundationCurriculumList" [inputSkillName]="'Foundational'"></learner-mandatory-course>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- <div class="box-margin"></div> -->
+                    <!-- <div>
+                        <!-- <div class="panel panel-default"> -->
+                    <!-- <div class="panel-heading" role="tab" id="foundationalElectiveSelectedCoursesHeading">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" href="#foundationalElectiveSelectedCourses" aria-expanded="true" aria-controls="foundationalElectiveSelectedCourses"
+                                        class="trigger in">
+                                       Electives
+                                    </a>
+                                </h4>
+                            </div> -->
+                    <!-- <div id="foundationalElectiveSelectedCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalElectiveSelectedCoursesHeading">
+                                <div class="panel-body"> -->
+
+                    <!-- </div>
+                            </div> -->
+
+                    <!-- </div> -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="foundationalHeading">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#electiveFoundationalCourses" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                            Elective Foundational Courses
+                                        </a>
+                            </h4>
+                        </div>
+                        <div id="electiveFoundationalCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalHeading">
+                            <div class="panel-body">
+                                <selected-elective-course [inputselectedElectiveCourseList]="foundationCurriculumList" [inputSkillName]="'Foundational'" [inputCourseCount]="foundationElectiveCourseCount"></selected-elective-course>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row" [hidden]="canUserProceed('Foundational')">
+                        <div class="col-md-12 text-center">
+                            <h4 class="Next">Add {{this.getRequiredElectiveCourseCount(foundationElectiveCourseCount)}} foundational courses to your path to proceed</h4>
+                        </div>
+                    </div>
+
+                    <div [hidden]="!canUserProceed('Foundational')">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h4 class="Next">Great, you are ready to proceed to selecting the Functional Skill Courses</h4>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-xs-12 text-center">
+                                <a href="#" (click)=" navigateTab($event,1)" class="NextButton">FUNCTIONAL SKILL COURSES &gt;</a>
+                            </div>
+                        </div>
+                        <div class="box-margin"></div>
+                    </div>
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="electiveCourseHeading">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#foundationalelectiveCourse" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                            COURSES RECOMMENDED BY SME FOR YOUR PATHWAY
+                                                </a>
+                            </h4>
+                        </div>
+                        <div id="foundationalelectiveCourse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="electiveCourseHeading">
+                            <div class="panel-body">
+                                <learner-elective-course [inputAssignedElectiveCourseList]="foundationCurriculumList" [inputCourseType]="'Foundational'"></learner-elective-course>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="functional">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="functionalHeading">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#functionalCourses" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                    Mandatory Functional Courses
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="functionalCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalHeading">
+                            <div class="panel-body">
+                                <learner-mandatory-course [inputMandatoryCourseList]="funcCurriculumList" [inputSkillName]="'Functional'"></learner-mandatory-course>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="functionalHeading">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#electiveFunctionalCourses" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                        Elective Functional Courses
+                                    </a>
+                            </h4>
+                        </div>
+                        <div id="electiveFunctionalCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="foundationalHeading">
+                            <div class="panel-body">
+                                <selected-elective-course [inputselectedElectiveCourseList]="funcCurriculumList" [inputSkillName]="'Functional'" [inputCourseCount]="functionalElectiveCourseCount"></selected-elective-course>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!--<div class="row" [hidden]="canUserProceed('Functional')">
+                        <div class="col-md-12 text-center">
+                            <h4 class="Next">Add {{this.getRequiredElectiveCourseCount(functionalElectiveCourseCount)}} functional courses to your path to proceed</h4>
+                        </div>
+                    </div>-->
+
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h4 class="Next">Once you are done selecting functional courses, please proceed to selecting the Enrichment Skill Courses</h4>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-xs-12 text-center">
+                                <a href="#" (click)=" navigateTab($event,2)" class="NextButton">ENRICHMENT COURSES &gt;</a>
+                            </div>
+                        </div>
+                        <div class="box-margin"></div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="electiveCourseHeading">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" href="#functionalelectiveCourse" aria-expanded="true" aria-controls="foundationalCourses" class="trigger in">
+                                    COURSES RECOMMENDED BY SME FOR YOUR PATHWAY
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="functionalelectiveCourse" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="electiveCourseHeading">
+                            <div class="panel-body">
+                                <learner-elective-course [inputAssignedElectiveCourseList]="funcCurriculumList" [inputCourseType]="'Functional'"></learner-elective-course>
+                                <div class="col-sm-12 col-xs-12">
+                                    <div class="center-block box-margin">
+                                        <realTimeSearch-courses (onAddSearchedCourse)="addCourseFromSearch($event)" (onShowSearchedCourseDetail)="showCourseDetailPopup($event)" [isBusy]="isLoading" [searchResult]="searchResult"
+                                            (searchKey)="searchCourses($event)" [skillId]="2"></realTimeSearch-courses>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--  end of functional tab -->
+
+                <div role="tabpanel" class="tab-pane" id="enrichment">
+
+                    <div>
+                        <enrichment-courses [inputEnrichmentCourses]="enrichmentCurriculumList"></enrichment-courses>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--  end of enrichment tab -->
+        </div>
+    </div>
+
+</div>
+
+<msg-model-popup #msgModal>
+    <!-- <div class="app-modal-header">
+        <span>
+            <b>Confirmation!</b>
+        </span>
+    </div> -->
+    <div class="app-modal-body WelcomePopUp">
+        <h5>WELCOME TO appliedx PATHWAY, {{currentEmployeeName | uppercase}} !</h5>
+        <p>We have created a {{employeeRoleName}} Path with recommended courses for you for 2018. </p>
+        <p>
+            The recommended coursework is closely tied to foundational and functional skills associated with your role.
+        </p>
+        <div class="col-md-12 text-center">
+            <!-- <a class="GetStarted" href="foundational-Skills.html">GET STARTED</a> -->
+            <button type="button" (click)="hideDialog($event)" class="btn btn-primary button-oval-shape GetStarted">GET STARTED</button>
+        </div>
+        <!-- <span>{{welcomeMessage}}</span> -->
+
+    </div>
+
+    <!-- <div class="app-modal-footer text-center">
+        <button type="button" (click)="hideDialog($event)" class="btn btn-primary button-oval-shape">GET STARTED</button>
+    </div> -->
+
+</msg-model-popup>
+
+<app-modal #modal></app-modal>
+
+<msg-model-popup [inputModalPopupSizeClass]="'modal-sm'" #validationMsgModal>
+    <div class="app-modal-body" id="validationMsgPopup">
+    </div>
+    <div class="app-modal-footer text-center">
+        <button type="button" (click)="hideValidationDialog($event)" class="btn btn-primary button-oval-shape">OK</button>
+    </div>
+
+</msg-model-popup>

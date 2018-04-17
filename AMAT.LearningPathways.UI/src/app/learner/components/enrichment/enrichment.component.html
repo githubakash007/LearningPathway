@@ -1,0 +1,147 @@
+<!-- <div class="course-list-container"> -->
+<div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="enrichmentSelectedCoureseHeading">
+            <h4 class="panel-title title">
+                <a role="button" data-toggle="collapse" href="#enrichmentSelectedCourses" aria-expanded="true" aria-controls="enrichmentCourses" class="trigger in">
+                    <span>Enrichment Courses</span>
+                </a>
+            </h4>
+        </div>
+        <div id="enrichmentSelectedCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="enrichmentSelectedCoureseHeading">
+            <div class="panel-body-selected-courses ">
+                <div class="">
+                    <div class="row">
+                        <div class="col-xs-6 text-left">
+                        </div>
+                        <div class="col-xs-3 text-left">
+                        </div>
+                        <div class="col-xs-1 text-center">
+                            <summation-badge [inputCourseList]="selectedEnrichmentCourseList" [isTotalCost]="true" [isTotalDuration]="false"></summation-badge>
+                        </div>
+                        <div class="col-xs-2 text-center">
+                            <summation-badge [inputCourseList]="selectedEnrichmentCourseList" [isTotalCost]="false" [isTotalDuration]="true"></summation-badge>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-list-body">
+                    <div class="row" *ngFor="let c of selectedEnrichmentCourseList">
+                        <div class="col-xs-2  text-left">
+                            <label class="pde">{{c.CourseId}}</label>
+                        </div>
+                        <div class="col-xs-3  text-left">
+                            <a class="course" href="" (click)="modal.show($event,c.CourseId,false,undefined,c.IsMandatory)">{{c.CourseName}}</a>
+                        </div>
+                        <div class="col-xs-4  text-left">
+                            <span class="customer">{{c.CompetencyList.join()}}</span>
+                        </div>
+
+                        <div class="col-xs-1 text-center">
+                            <span class="duration">{{c.BasePrice | currency:'USD':'symbol':'.0-2'}}</span>
+                        </div>
+                        <div class="col-xs-2 text-center">
+                            <span class="duration">{{c.Duration}} h</span>
+
+                            <span (click)="deleteCourse($event,c)" class="glyphicon glyphicon-trash delete-btn" data-container="body" data-toggle="tooltip" title="Remove course" trigger='hover' placement='left' aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- enrichment selected courses ends here -->
+<!-- <div class="box-margin"></div> -->
+<div class="row">
+    <div class="col-xs-10 col-xs-push-1 text-center">
+        <h4 class="Next">Almost done. Your PATHWAY contains {{totalSelectedCourseHours | number:'1.1-1'}} hours of studies - you can add upto {{(totalSelectedCourseHours > maxHours? 0 :(maxHours - totalSelectedCourseHours)) | number:'1.1-1'}} hours of extracurricular
+            studies, to finalize your PATHWAY for FY18.
+        </h4>
+        <h4 class="NextAnchor">When ready, click below to view your PATHWAY summary.
+            <!-- <a [routerLink]="['../summary']" class="anchor">click below to view your PATHWAY summary</a> -->
+        </h4>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <a [routerLink]="['../summary']" class="NextButton">PATHWAY SUMMARY</a>
+    </div>
+</div>
+<div class="box-margin"></div>
+<!-- <div class="Path"> -->
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="enrichmentHeading">
+            <h4 class="panel-title title">
+                <a role="button" data-toggle="collapse" href="#enrichmentCourses" aria-expanded="true" aria-controls="enrichmentCourses" class="trigger in">
+                    <span>List of available enrichment courses</span>
+                </a>
+            </h4>
+        </div>
+        <!-- <div class="title">
+          
+          <span>COURSES RECOMMENDED BY SME FOR YOUR PATHWAY</span>
+      </div> -->
+        <div class="history-box">
+            <div class="search-course-box">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="well">
+                            You can search the entire PATHWAY catalog, including foundational and functional courses, to add for enrichment, or choose from the available enrichment courses below.
+                        </div>
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="center-block box-margin">
+                                <realTimeSearch-courses (onAddSearchedCourse)="addCourseFromSearch($event)" (onShowSearchedCourseDetail)="showCourseDetailPopup($event)" [isBusy]="isLoading" [searchResult]="searchResult" (searchKey)="searchCourses($event)" [skillId]="3"></realTimeSearch-courses>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="enrichmentCourses" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="enrichmentHeading">
+                <div class="panel-body">
+                    <div class="row" *ngFor="let c of enrichmentCourseList">
+                        <div class="col-xs-12">
+                            <div class="row greenBullet">
+                                <div class="col-xs-1 text-left">
+                                    <span data-toggle="tooltip" title="Add course to curriculum" data-container="body" trigger='hover' placement='left' (click)="AddEnrichmentCourse($event,c)" class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                                </div>
+                                <div class="col-xs-2">
+                                    <label class="pde">{{c.CourseId}}</label>
+                                </div>
+                                <div class="col-xs-3">
+                                    <a class="course" href="" (click)="modal.show($event,c.CourseId,true,AddEnrichmentCourse.bind(this,$event,c),c.IsMandatory)">{{c.CourseName}}</a>
+                                </div>
+                                <div class="col-xs-3">
+                                    <span class="customer">{{c.CompetencyList.join()}}</span>
+                                </div>
+                                <div class="col-xs-1 text-center">
+                                    <span class="duration">{{c.BasePrice | currency:'USD':'symbol':'.0-2'}}</span>
+                                </div>
+                                <div class="col-xs-2 text-center">
+                                    <span class="duration">{{c.Duration}} h</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-modal #modal></app-modal>
+
+<msg-model-popup [inputModalPopupSizeClass]="'modal-sm'" #msgModal>
+    <div class="app-modal-body" id="validationPopup">
+    </div>
+    <div class="app-modal-footer text-center">
+        <button type="button" (click)="hideDialog($event)" class="btn btn-primary button-oval-shape">OK</button>
+    </div>
+
+</msg-model-popup>

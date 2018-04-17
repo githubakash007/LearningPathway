@@ -1,0 +1,157 @@
+[
+    {
+        "skillgrp": "foundational",
+        "courses": [
+            {
+                "courseid": "PDE1-200",
+                "coursename": "Advance Angular",
+                "duration": 120,
+                "ismandatory": 0,
+                "isselected":0,
+                "competencies": [
+                    "Angular"
+                    
+                ],
+                "coursetype": "advance"
+            },
+            {
+                "courseid": "PDE1-211",
+                "coursename": "Angular with azure",
+                "duration": 120,
+                "ismandatory": 0,
+                "isselected":0,
+                "competencies": [
+                    "Angular",
+                    "Azure"
+                ],
+                "coursetype": "basic"
+            },
+            {
+                "courseid": "PDE1-212",
+                "coursename": "Angular with Typescript",
+                "duration": 50,
+                "ismandatory":1, "isselected":0,
+                "competencies": [
+                    "Angular",
+                    "Typescript"
+                ],
+                "coursetype": "intermediate"
+            },
+            {
+                "courseid": "PDE1-213",
+                "coursename": "Angular with webpack",
+                "duration": 30,
+                "ismandatory": 0, "isselected":0,
+                "competencies": [
+                    "Angular",
+                    "webpack"
+                ],
+                "coursetype": ""
+            },
+            {
+                "courseid": "PDE1-214",
+                "coursename": "Routing in Angular",
+                 "duration": 15,
+                "ismandatory":1, "isselected":0,
+                "competencies": [
+                    "Angular"
+                   
+                ],
+                "coursetype": "intermediate"
+            }
+        ]
+    },
+    {
+        "skillgrp": "functional",
+        "courses": [
+            {
+                "coursename": "High Value Problems",
+                "courseid": "PDE1-211",
+                "duration": 200,
+                "ismandatory": 0, "isselected":0,
+                "competencies": [
+                    "Customer Focus"
+                ],
+                "coursetype": "advance"
+            },
+            {
+                "coursename": "Market Requirements Specifications",
+                "courseid": "PDE1-218",
+                "duration": 190,
+                "ismandatory": 0, "isselected":0,
+                "competencies": [
+                    "Customer Focus"
+                ],
+                "coursetype": "intermediate"
+            },
+            {
+                "coursename": "Aggressive Technical Buyer Tactics",
+                "courseid": "PDE1-221",
+                "duration": 105,
+                "ismandatory": 1, "isselected":0,
+                "competencies": [
+                    "Customer Focus"
+                ],
+                "coursetype": "basic"
+            },
+            {
+                "coursename": "Customer Technical Data Package",
+                "courseid": "PDE2-TCM 309",
+                "duration": 210,
+                "ismandatory": 0, "isselected":0,
+                "competencies": [
+                    "Customer Focus",
+                    "Data Package"
+                ],
+                "coursetype": "intermediate"
+            },
+            {
+                "coursename": "Competitive Information Gathering for the Field",
+                "courseid": "CEE 203",
+                "duration": 208,
+                "ismandatory": 0, "isselected":0,
+                "competencies": [
+                    "Customer Focus"
+                ],
+                "coursetype": "advance"
+            }
+        ]
+    },
+    {
+        
+        "skillgrp": "softskills",
+        "courses": [
+            {
+                "courseid": "PDE1-211",
+                "coursename": "Basic Javascript",
+                "duration": 120,
+                "ismandatory": 0, "isselected":0,
+                "competencies": [
+                    "Javascript"
+                ],
+                "coursetype": "intermediate"
+            },
+            {
+                "courseid": "PDE1-212",
+                "coursename": "Javascript with HTML5",
+                "duration": 150,
+                "ismandatory": 1, "isselected":0,
+                "competencies": [
+                    "Javascript","HTML5"
+                ],
+                "coursetype": ""
+            },
+            {
+                "courseid": "PDE1-213",
+                "coursename": "Trubling shooting in Javascript",
+                "duration": 30,
+                "ismandatory": 0, "isselected":0,
+                "competencies": [
+                    "Javascript",
+                    "Chrome"
+                ],
+                "coursetype": "advance"
+            }
+        ]
+    }
+]

@@ -1,0 +1,61 @@
+<div class="course-list-container">
+
+    <div class="course-list-header">
+        <div class="row">
+
+            <div class="col-xs-6 text-left">
+                <!-- <span class="course-list-container__span">Mandatory {{skillName}} Courses</span> -->
+            </div>
+            <div class="col-xs-3"></div>
+            <div class="col-xs-1 text-center">
+                <summation-badge [inputCourseList]="mandatoryCourseListForSummation" [isTotalCost]="true" [isTotalDuration]="false"></summation-badge>
+            </div>
+            <div class="col-xs-2 text-center">
+                <summation-badge [inputCourseList]="mandatoryCourseListForSummation" [isTotalCost]="false" [isTotalDuration]="true"></summation-badge>
+            </div>
+        </div>
+    </div>
+    <div class="course-list-body">
+        <div class="row" *ngFor="let c of mandatoryCourseList">
+
+            <div class="col-xs-2  text-left">
+                <label data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" title="" trigger='manual' data-placement='top' class="pde" [ngClass]="{'strike-course':c.IsCourseCompleted===true && c.IsCourseDeactivated===false,'strike-course-red':c.IsCourseCompleted===true && c.IsCourseDeactivated===true}">{{c.CourseId}}</label>
+
+            </div>
+            <div class="col-xs-3  text-left">
+                <a class="course" href="#" (click)="modal.show($event,c.CourseId,false,undefined,c.IsMandatory)">{{c.CourseName}}</a>
+            </div>
+
+            <div class="col-xs-4  text-left">
+                <span class="customer">{{c.CompetencyList.join()}}</span>
+
+            </div>
+            <!-- <div class="col-xs-4  text-left">
+                <ng-container *ngIf="c.CompetencyList?.length > 2">
+                    <span id={ {c.CourseId}} data-show-expand='false' data-short="c.CompetencyList.slice(0,2).join()" data-long='c.CompetencyList.join()'
+                        class="customer">{{c.CompetencyList.slice(0,2).join()}}</span>
+                    <a href="#" (click)="expand($event,c.CourseId,c.CompetencyList)">...</a>
+                </ng-container>
+
+                <ng-container *ngIf="c.CompetencyList?.length <= 2">
+                    <span class="customer">{{c.CompetencyList.join()}}</span>
+                </ng-container>
+            </div> -->
+            <div class="col-xs-1 text-center">
+                <span class="duration">{{c.BasePrice | currency:'USD':'symbol':'.0-2'}}</span>
+            </div>
+
+            <div class="col-xs-2 text-center">
+                <span data-toggle="tooltip" data-container="body" data-html="true" data-animation="true" (mouseenter)="showTooltip($event,c)" (mouseleave)="hideTooltip($event)" title="" trigger='manual' data-placement='top' class="duration" [ngClass]="{'strike-course':c.IsCourseCompleted===true && c.IsCourseDeactivated===false,'strike-course-red':c.IsCourseCompleted===true && c.IsCourseDeactivated===true}">{{c.Duration}} h</span>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<app-modal #modal></app-modal>

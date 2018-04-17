@@ -1,0 +1,131 @@
+.glyphicon-trash {
+    color: red;
+}
+
+.glyphicon-plus-sign {
+    color: green;
+}
+
+.Path {
+    background: #fff;
+    border: 1px solid #ebebe9;
+    box-shadow: 0px 2px 5px rgba(234, 234, 234, 0.87);
+    padding: 30px 15px;
+    margin-top: 8px;
+}
+
+.courses {
+    margin-top: 20px;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.duration {
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.basic {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: green;
+}
+
+.intermediate {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: yellow;
+}
+
+.advance {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: red;
+}
+
+
+/* .no-course-type{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+   
+} */
+
+
+/* @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  } */
+
+.no-result {
+    margin: 20px;
+}
+
+.no-result span {
+    color: red;
+    font-size: 14px;
+    font-weight: 500;
+    /* text-align: center; */
+    padding: 20px 20px 20px 20px;
+}
+
+
+/* .loadinggif 
+  {
+     background:
+       url('http://www.hsi.com.hk/HSI-Net/pages/images/en/share/ajax-loader.gif')
+       no-repeat
+       right center;
+  }
+
+  /* one more solution based on bootstrap */
+
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+.result-box {
+    padding: 10px 10px 10px 10px;
+    /* background-color: dimgray; */
+}
+
+.transition {
+    -webkit-transition: opacity 1000ms ease-in-out, margin-left 500ms ease-in-out;
+    -moz-transition: opacity 1000ms ease-in-out, margin-left 500ms ease-in-out;
+    -ms-transition: opacity 1000ms ease-in-out, margin-left 500ms ease-in-out;
+    -o-transition: opacity 1000ms ease-in-out, margin-left 500ms ease-in-out;
+    transition: opacity 1000ms ease-in-out, margin-left 500ms ease-in-out;
+    margin-left: 1500px;
+    width: 200px;
+    opacity: 0;
+}
+
+.transition {
+    opacity: 100;
+    margin-left: 0;
+}
+
+.no-cursor {
+    cursor: auto;
+}

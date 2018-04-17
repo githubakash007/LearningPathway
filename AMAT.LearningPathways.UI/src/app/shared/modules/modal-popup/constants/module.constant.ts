@@ -1,0 +1,1 @@
+export const courseBaseUrlInSABA = "https://amat.sabacloud.com/Saba/Web_spf/NA3P1PRD0037/common/ledetail/"; 

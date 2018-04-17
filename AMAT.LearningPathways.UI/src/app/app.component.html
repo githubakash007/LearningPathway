@@ -1,0 +1,77 @@
+<!-- <div class="container-fluid" > -->
+<header>
+    <nav class="navbar mbr-navbar">
+        <div class="row">
+            <div id="Menu" class="col-sm-4">
+
+            </div>
+            <div class="col-sm-4 text-center">
+                <a href="#" (click)="doNothing($event)" class="Logo d-none d-md-block d-lg-block d-xl-block">
+                    <!-- <img src="/assets/images/amat.png" alt="" /> -->
+                    <img src="/LearningPathways/assets/images/amat.png" alt="" />
+                </a>
+                <!-- <a href="#" (click)= "doNothing($event)" class="d-block d-xs-block d-sm-block d-none d-md-none">
+         <img src="/LearningPathways/assets/images/amat_xs.png" title="AMAT PROPS">
+        </a> -->
+            </div>
+            <div class="col-sm-4 RightMenu">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="name">{{employeeName}}</span>
+                            <span class="User d-none d-none d-md-inline-block d-lg-inline-block d-xl-inline-block">
+                <!-- <img src="/assets/images/avatar-placeholder.svg" alt="" /> -->
+                <img src="/LearningPathways/assets/images/avatar-placeholder.svg" alt="" />
+              </span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid GreenBg">
+        <div class="row">
+            <div class="col col-sm-6 col-md-3 col-lg-3 col-xl-2 Pathway"><span><a class="Link"><img src="/LearningPathways/assets/images/logo.png" alt="LP"></a></span> </div>
+            <div class="col col-sm col-md col-lg col-xl Pathway text-right">
+                <ul class="SubMenu">
+                    <li><a *ngIf="showMyApprovalLink" (click)="redirectToManager($event)" class="Link cursor">My Approval ({{pendingApprovalCount}})</a></li>
+                    <li><a href="#" (click)="msgModal.show($event)" class="Link">Watch Help Video</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle Link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Knowledge Apps</a>
+                        <ul class="dropdown-menu">
+                            <li><span><img src="/LearningPathways/assets/images/PathwaysLogo.jpg" alt=""></span> <a target="_blank" href="https://spprdappweb.amat.com/LearningPathways/learner/">appliedx PATHWAY</a></li>
+                            <li><span><img src="/LearningPathways/assets/images/OndemandLogo.jpg" alt=""></span> <a target="_blank" href="http://appliedx">appliedx ONDEMAND</a></li>
+                            <li><span><img src="/LearningPathways/assets/images/StreamLogo.png" alt=""></span> <a target="_blank" href="http://web.microsoftstream.com">appliedx STREAM</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a target="_blank" href="https://amat.service-now.com/AMAT3/topic_summary.do?topic=appliedx" class="Link">Help</a></li>
+                    <!-- <li><a target="_blank" href="https://spprdappweb.amat.com/RoleAssignmentTool/Pages/AppliedXFAQ.aspx" class="Link">Help</a></li> -->
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- </div> -->
+<div class="container-fluid">
+    <router-outlet></router-outlet>
+</div>
+
+<msg-model-popup #msgModal>
+    <div class="app-modal-header">
+        <button type="button" class="close" (click)="hideDialog($event)">&times;</button>
+    </div>
+    <div class="app-modal-body">
+        <div align="center" class="embed-responsive embed-responsive-16by9">
+            <video controls="true" class="embed-responsive-item" id="LPVideo">
+        <source src="/LearningPathways/assets/{{videoName}}" type="video/mp4">
+            <!-- <source src="{{videoName}}" type="video/mp4"> -->
+         
+      </video>
+        </div>
+    </div>
+
+</msg-model-popup>

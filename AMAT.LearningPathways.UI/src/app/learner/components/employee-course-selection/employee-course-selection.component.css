@@ -1,0 +1,77 @@
+.user-note {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.user-note-heading {
+    font-size: 15px;
+    padding: 0px;
+}
+
+.highlight-cost {
+    color: red;
+}
+
+.emp-details ul {
+    list-style-type: none;
+}
+
+button.btn-approve {
+    border-radius: 100px;
+    background-color: #00B948;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+    border-color: transparent;
+}
+
+button.btn-suggest-change {
+    border-radius: 100px;
+    background-color: #D9D9D6;
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+    text-transform: capitalize;
+    border-color: transparent;
+}
+
+button.suggest-change-btn {
+    border-radius: 100px;
+    background-color: #4599c3;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+}
+
+button.go-back-btn {
+    border-radius: 100px;
+    background-color: lightgray;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+    border: none;
+    text-transform: uppercase;
+}
+
+.alert-text {
+    color: red;
+}

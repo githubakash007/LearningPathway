@@ -1,0 +1,34 @@
+.success-message{
+    color:green;
+    font-weight: bold;
+}
+
+h4.Next {
+    color: #242527;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    margin: 40px 0px 15px;
+}
+
+a.NextButton {
+    border-radius: 100px;
+    background-color: #00B948;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+}
+
+.glyphicon{
+    color: green !important ;
+}
+
+.success-header{
+    margin-bottom:10px;
+    font-weight: 600;
+
+}

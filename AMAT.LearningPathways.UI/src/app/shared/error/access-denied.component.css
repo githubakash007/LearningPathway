@@ -1,0 +1,56 @@
+.send-email-link {
+    font-weight: bold !important;
+}
+
+.message-box{
+border: 0.1px solid darkgreen;
+padding: 20px;
+background-color: beige;
+/* margin-top: 0px; */
+margin: 10px;
+}
+
+@keyframes changecolor {
+    0%   {margin-right:10%;}
+    50%  {margin-right:0%;}
+    100% {margin-right:10%;}
+}
+
+@-webkit-keyframes changecolor {
+    0%   {margin-right:10%;}
+    50%  {margin-right:0%;}
+    100% {margin-right:10%;}
+}
+
+p.highlighter{
+    font-size: larger;
+    font-weight: 600;
+    transform: scaleY(1.1);
+    text-align: center;
+    animation: changecolor 11s infinite;
+    -webkit-animation:changecolor 11s infinite;
+    color: darkgoldenrod;
+    text-decoration: underline;
+}
+
+ p.text-highlight{
+        font-weight: 600;
+        transform: scaleY(1.1);
+        text-decoration: underline;
+        font-size: large;
+        }
+
+        ul{
+            padding-left: 0px;
+        }
+
+        ul > li {
+            list-style-type: none;
+        }
+
+.exclusion-message{
+        font-size: medium !important;
+        font-weight: 600 !important;
+        font-family: sans-serif !important;
+}
+

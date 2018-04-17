@@ -1,0 +1,85 @@
+<div class="container-fluid">
+  <div  class="modal fade" tabindex="-1" style="background-color: rgba(0, 0, 0, 0.5);"  data-backdrop="false" data-keyboard="false" [ngClass]="{'in': visibleAnimate}" [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ?1 : 0}"
+    role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="row close-button-margin">
+            <button type="button" class="close" data-dismiss="modal" (click)="hide()" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="row">
+            <div class="col-xs-3">
+              <img src="/LearningPathways/assets/images/demo.jpg" class="img-responsive" />
+            </div>
+            <div class="col-xs-9">
+              <div class="row course-metadata">
+                <div class="col-xs-4">{{data?.CourseId}}</div>
+                <div class="col-xs-8">
+                  <span>Learning Env: {{data?.LearningEnv}}</span>
+                </div>
+                <!-- <div class="col-xs-4">
+                  <a [href] = "sabaUrl" target="_blank">Take Course</a>
+                 </div>  -->
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class="course-name">{{data?.CourseName}}</span>
+                </div>
+              </div>
+              <div class="row row-row">
+                <div class="col-xs-3 row-column">
+                  <div class="row heading"><span>Instructor:</span></div>
+                  <div class="row content"> <span>{{data?.InstructorName}}</span>
+                      <!-- <div class="col-xs-5">
+                          <img src="/assets/images/ghost.jpg" class="img-responsive" />
+                        </div> -->
+                       
+                    </div>
+                  
+                </div>
+               
+                <div class="col-xs-6 row-column">
+                    <div class="row heading"> <span>Competency</span></div>
+                    <div class="row content"> <span>{{data?.CompetencyList?.join(', ')}}</span></div>
+                 
+                </div>
+               
+                <!-- <div class="col-xs-3 row-column">
+                    <div class="row text-center">  <span>Course Topics</span></div>
+                    <div class="row text-center"> <span>{{data?.CompetencyList?.join('')}}</span></div>
+                 </div> -->
+                 
+                <div class="col-xs-3 row-column">
+                    <div class="row heading"><span>Course Length</span></div>
+                    <div class="row text-center"> <span>{{data?.Duration}} h</span></div>
+                 
+                </div>
+               
+              </div>
+            
+            </div>
+          </div>
+        </div>
+        <div class="modal-body course-description">
+         <div class="row">
+           <div class="col-xs-12">
+             <p>{{data?.CourseDesc}}</p>
+           </div>
+         </div>
+        </div>
+        <div class="modal-footer">
+          <div class="row">
+            <div class="col-xs-8">
+              <span class="text-nowrap">This course is suggested as {{isMandatory?'mandatory':'elective'}} for your {{data?.Skill}} path</span>
+            </div>
+            <div class="col-xs-4 add-path" (click)="addCourse(data)" [hidden]="!showAddToPathBtn">
+                <span>ADD TO PATH <span  class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

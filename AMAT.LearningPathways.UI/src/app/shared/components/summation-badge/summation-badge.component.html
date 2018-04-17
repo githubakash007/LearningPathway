@@ -1,0 +1,2 @@
+<span *ngIf="isTotalDuration" class="badge" [ngClass]="{'zero-summation':inputCourseList?.length === 0}">{{totalCourseDuration}} h</span>
+<span *ngIf="isTotalCost" class="badge" [ngClass]="{'zero-summation':inputCourseList?.length === 0}">{{totalCourseCost | currency:'USD':'symbol':'.0-2'}}</span>

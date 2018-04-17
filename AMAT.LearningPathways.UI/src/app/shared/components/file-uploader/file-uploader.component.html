@@ -1,0 +1,40 @@
+<div class="contianer">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-3">
+                <input type="file" (change)="incomingFile($event)" placeholder="Upload file" class="btn btn-default" accept=".xlsx">
+            </div>
+            <div class="col-md-9">
+                <button type="button" class="btn btn-primary" (click)="uploadFile()">
+                <span class="glyphicon glyphicon-upload"></span> Upload
+            </button>
+            </div>
+        </div>
+        <div class="col-md-12 table-responsive excel-data">
+            <table class="table table-bordered table-hover">
+
+                <thead>
+                    <tr>
+                        <th *ngFor="let header of excelJsonHeader">{{header}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let body of excelJsonData">
+                        <td>{{body.EMPLOYEE_ID}}</td>
+                        <td>{{body.EMPLOYEE_NAME}}</td>
+                        <td>{{body.IS_ACTIVE}}</td>
+                        <td>{{body.HAS_FROZEN}}</td>
+                        <td>{{body.IS_PATHWAY_BLOCKED}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div *ngIf="showSubmitButton" class="col-md-12">
+            <div class="text-center">
+                <button class="btn btn-success" (click)="onSubmit($event)"> Submit</button>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,229 @@
+/* We are using BEM conventions to name the css classes.
+
+<button class='btn btn--warning'> <!-- .btn--warning one of the variation of .btn-->
+<div class="btn__text"></div> <!-- .btn__text one of the child of .btn-->
+</button> */
+
+.mandatory {
+    background-color: green;
+}
+
+.elective {
+    background-color: orange;
+}
+
+.electiveStar {
+    color: #ccc;
+}
+
+.mandatoryStar {
+    color: red !important;
+    margin-left: 5px;
+}
+
+.course-list-container {
+    background: #fff;
+    border: 1px solid #ebebe9;
+    box-shadow: 0px 2px 5px rgba(234, 234, 234, 0.87);
+    padding: 30px 45px;
+    /* margin-top: 8px; */
+}
+
+.course-list-container__span {
+    /* margin-top:8px;
+   margin-bottom:8px;  */
+    color: #242527;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+course-list-container course-list {
+    margin-top: 8px;
+}
+
+.no-skills {
+    color: #888B8D;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.gray-font {
+    color: #D9D9D6;
+    font-size: 18px;
+}
+
+.Path {
+    background: #fff;
+    border: 1px solid #ebebe9;
+    box-shadow: 0px 2px 5px rgba(234, 234, 234, 0.87);
+    padding: 30px 15px;
+    margin-top: 8px;
+}
+
+.Courses>h5 {
+    color: #242527;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.Courses .Total {
+    color: #242527;
+    font-family: "Open Sans";
+    font-size: 13px;
+    text-align: right;
+    padding: 1px 5px;
+    font-weight: 600;
+    border-radius: 100px;
+    background-color: rgba(0, 185, 72, 0.15);
+    margin-right: 15px;
+}
+
+label.pde {
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+a.course {
+    color: #4195bf;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-weight: 500;
+}
+
+label.customer {
+    color: #888B8D;
+    font-family: "Open Sans";
+    font-size: 13px;
+}
+
+label.Time {
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.Courses i.fa-check-circle {
+    color: #00B948;
+    line-height: 27px;
+}
+
+.Fa-Space {
+    display: inline-block;
+    width: 16px;
+}
+
+.Electives {
+    display: block;
+    margin: 0 0 20px;
+}
+
+label.Elective {
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.Electives .fa-star {
+    font-size: 10px;
+    color: #ccc;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.GrayFont {
+    color: #D9D9D6;
+    font-size: 18px;
+}
+
+.TotalHRS {
+    color: #242527;
+    font-family: "Open Sans";
+    font-size: 13px;
+    text-align: right;
+    padding: 1px 5px;
+    font-weight: 600;
+    border-radius: 100px;
+    background-color: rgba(255, 84, 84, 0.15);
+    margin-right: 15px;
+}
+
+.SkillsInfo {
+    color: #888B8D;
+    font-family: "Open Sans";
+    font-size: 13px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.GreenText {
+    color: #00B948;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+
+/* .active{color: #333;
+background-color: red;
+border-color: #adadad;
+} */
+
+
+/* .basic{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: green;
+} */
+
+
+/* .intermediate{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background:yellow;
+} */
+
+
+/* .advance{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background:red;
+    
+} */
+
+
+/* .no-course-type{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background:grey;
+} */
+
+.course-list-header {
+    margin-bottom: 15px;
+}
+
+.summation-badge {
+    margin-left: -11px;
+}

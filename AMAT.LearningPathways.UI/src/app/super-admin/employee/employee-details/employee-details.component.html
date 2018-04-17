@@ -1,0 +1,114 @@
+<div>
+  <form class="mat-dialog-content" [formGroup]="employeeForm">
+
+    <div class="formField">
+      <mat-form-field>
+        <input matInput class="form-control" id="employeeId" [readonly]="true" placeholder="EmployeeID" type="text" formControlName="EmployeeID">
+      </mat-form-field>
+    </div>
+
+    <div class="formField">
+      <mat-form-field>
+        <input matInput class="form-control" id="employeeNameId" [readonly]="true" placeholder="EmployeeName" type="text" formControlName="EmployeeName">
+      </mat-form-field>
+    </div>
+
+    <div class="formField">
+      <mat-form-field>
+        <input matInput class="form-control" [readonly]="true" id="employeeEmailId" placeholder="Email" type="email" formControlName="WorkEmail">
+      </mat-form-field>
+    </div>
+
+    <div class="formFieldRadio">
+      <label class="radioLabel">IsPathwayBlocked:</label>
+
+      <mat-radio-group fxLayout fxLayoutAlign="center center" fxLayoutGap="30px" id="isPathwayBlockedId"
+        formControlName="IsPathwayBlocked">
+        <mat-radio-button value="true">True</mat-radio-button>
+        <mat-radio-button value="false">False</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="formFieldRadio">
+        <label class="radioLabel">HasLearnerFrozen:</label>
+  
+        <mat-radio-group fxLayout fxLayoutAlign="center center" fxLayoutGap="30px" id="hasLearnerFrozenId"
+          formControlName="HasLearnerFrozen">
+          <mat-radio-button value="true">True</mat-radio-button>
+          <mat-radio-button value="false">False</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+      <div class="formFieldRadio">
+          <label class="radioLabel">Active:</label>
+    
+          <mat-radio-group fxLayout fxLayoutAlign="center center" fxLayoutGap="30px" id="isActiveId"
+            formControlName="IsActive">
+            <mat-radio-button value="true">True</mat-radio-button>
+            <mat-radio-button value="false">False</mat-radio-button>
+          </mat-radio-group>
+        </div>
+    <!-- <mat-form-field>
+      <input matInput class="form-control" id="employeeId" placeholder="EmployeeID" type="text" formControlName="EmployeeID">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput class="form-control" id="employeeId" placeholder="EmployeeID" type="text" formControlName="EmployeeID">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput class="form-control" id="employeeId" placeholder="EmployeeID" type="text" formControlName="EmployeeID">
+    </mat-form-field> -->
+
+    <!-- <fieldset> -->
+      <!-- <div class="row">
+        <div class="col-xs-3">
+          <label for="employeeId">Id:</label>
+        </div>
+
+        <div class="col-xs-6">
+          <input id="employeeId" type="text" formControlName="EmployeeID" />
+        </div>
+      </div> -->
+
+      <!-- <div class="row">
+        <label for="employeeNameId">Name:</label>
+        <input id="employeeNameId" type="text" formControlName="EmployeeName" />
+      </div>
+
+      <div class="row">
+        <label for="employeeEmailId">Email:</label>
+        <input id="employeeEmailId" type="email" formControlName="WorkEmail" />
+      </div> -->
+
+      <!-- <div class="row">
+        <label for="isActiveId">Active:</label>
+        <input id="isActiveId" type="text" required formControlName="IsActive" />
+      </div>
+
+      <div class="row">
+        <label for="isPathwayBlockedId">IsPathwayBlocked:</label>
+        <input id="isPathwayBlockedId" type="text" formControlName="IsPathwayBlocked" />
+      </div>
+
+      <div class="row">
+        <label for="hasLearnerFrozenId">HasLearnerFrozen:</label>
+        <input id="hasLearnerFrozenId" type="text" formControlName="HasLearnerFrozen" />
+      </div>
+
+    </fieldset> -->
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10 text-center">
+        <button type="Update" class="btn btn-large btn-primary" [disabled]="!employeeForm.valid" (click)="updateEmployee()">Update</button>
+      </div>
+    </div>
+
+    <!-- <div>
+      <span> Is dirty {{employeeForm.dirty}}</span>
+      <span> Is valid {{employeeForm.valid}}</span>
+      <span> Is pristine {{employeeForm.pristine}}</span>
+      <span> Is invalid {{employeeForm.invalid}}</span>
+    </div> -->
+  </form>
+</div>

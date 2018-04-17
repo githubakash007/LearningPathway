@@ -1,0 +1,44 @@
+::ng-deep .mat-dialog-container{
+    background-color: whitesmoke !important;
+}
+
+::ng-deep .mat-cell, .mat-header-cell{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.formField{
+   padding-top: 10px; 
+   display: flex;
+}
+
+.formFieldRadio{
+    padding-top: 20px; 
+    display: flex;
+ }
+
+/* .container {
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+  } */
+  
+  /* .container > * {
+    width: 100%;
+  } */
+
+  .mat-form-field {
+    font-size: 16px;
+    flex-grow: 1;
+  }
+
+  .label{
+    font-weight: 100 !important;
+    font-size: 12px !important;
+  }
+
+.radioLabel{
+    font-size: 12px;
+    font-weight: 100;
+    padding-right: 20px;
+}

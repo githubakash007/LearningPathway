@@ -1,0 +1,120 @@
+<div class="container-fluid">
+    <div class="col-md-12 col-lg-12" [hidden]="hideEmployeeList">
+        <div class="col-sm-12 col-md-8 col-lg-8 mr-auto ml-auto">
+            <div class="MyApproval">
+                <h5>My Approval</h5>
+                <p>You have {{pendingApprovalCount}} employee request for course approval </p>
+            </div>
+            <!-- <ul>
+                    <li *ngFor="let emp of employeeList"><i class="fa fa-check"></i> <a (click)="getEmployeeCourseSelection(emp)">{{emp.EMPLOYEE_NAME}}</a> submitted on {{emp.COURSE_SUBMITTED_DATE}}</li>
+                </ul> -->
+
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4 mr-auto ml-auto">
+            <div class="MyApproval">
+                <!-- <a [routerLink]="['/learner/']" class="go-back-btn pull-right">&lt; Go Back</a> -->
+                <button class="go-back-btn pull-right" [routerLink]="['/learner/summary']">&lt; Go Back</button>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+            <div class="col-md-2">
+                <div class="employee-count">
+                    <ul>
+                        <li>EMPLOYEES</li>
+                        <li class="number">{{totalEmployeeCount}}</li>
+                    </ul>
+                </div>
+                <div class="total-cost">
+                    <ul>
+                        <li>TOTAL COST</li>
+                        <li class="cost">{{totalCost | currency:'USD':'symbol':'.0-2'}}</li>
+                        <!-- currency:'CAD':'symbol':'4.2-2' -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-9 MyApproval">
+                <div class="col-md-12">
+                    <div class="course-list-container">
+
+                        <div class="course-list-header">
+                            <div class="row">
+
+                                <div class="col-xs-3">
+                                    <span class="course-list">Employee Name</span>
+                                </div>
+                                <div class="col-xs-3"><span class="course-list"> Submitted Date</span></div>
+                                <div class="col-xs-3"> <span class="course-list">Status</span>
+                                </div>
+                                <div class="col-xs-3"> <span class="course-list">Cost</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-list-body">
+                            <div class="row" *ngFor="let emp of employeeList">
+                                <div class="col-xs-3 employee-name">
+                                    <span class="course-list-item"><a (click)="getEmployeeCourseSelection(emp)">{{emp.EMPLOYEE_NAME}}</a></span>
+                                </div>
+                                <div class="col-xs-3">
+                                    <span class="course-list-item"> {{emp.COURSE_SUBMITTED_DATE}}</span>
+                                </div>
+                                <div class="col-xs-3" [ngSwitch]="emp.IS_APPROVED">
+                                    <!-- {{emp.IS_APPROVED}} -->
+                                    <!-- <span class="course-list-item approved" *ngIf="emp.IS_APPROVED; else pendingApproval">Approved</span>
+                                    <ng-template #pendingApproval><span class="pending-approval">Pending Approval </span></ng-template> -->
+
+                                    <span *ngSwitchCase="true" class="approved">Approved</span>
+                                    <span *ngSwitchCase="false" class="suggested-change">Suggested Change</span>
+                                    <span *ngSwitchCase="" class="pending-approval">Pending Approval</span>
+                                </div>
+                                <div class="col-xs-3">
+                                    <span class="course-list-item"> {{emp.TOTAL_PATHWAY_COST | currency:'USD':'symbol':'.0-2'}}</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <ul>
+                    <li *ngFor="let emp of employeeList"><i class="fa fa-check"></i> <a (click)="getEmployeeCourseSelection(emp)">{{emp.EMPLOYEE_NAME}}</a> submitted on {{emp.COURSE_SUBMITTED_DATE}}</li>
+                </ul> -->
+            </div>
+
+            <div class="col-md-1">
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-12 col-lg-12" *ngIf="!hideEmployeeCourseSelection">
+        <button class="go-back-btn pull-right" (click)="goBackToEmployeeList()">&lt; Go Back</button>
+        <emp-course-selection [inputCurrentEmployeeDetails]="CurrentEmployeeDetails" (approved)='updateEmployeeListForApporval($event)' (suggestChanges)='updateEmployeeListForSuggestChanges($event)'></emp-course-selection>
+
+    </div>
+    <!-- <div class="col-md-12 text-center btn-list" *ngIf="!hideEmployeeCourseSelection">
+        <div *ngIf="!hideApprovalButton">
+            <button class="btn-approve" (click)="approve()">APPROVE</button>
+            <button (click)="suggestChange($event)" class="btn-suggest-change">SUGGEST CHANGE</button>
+        </div>
+    </div> -->
+</div>
+
+<!-- <msg-model-popup [inputModalPopupSizeClass]="'modal-md'" #msgModal>
+    <div class="app-modal-header">
+        <button type="button" class="close" (click)="cancelPopUp($event)">&times;</button>
+        <h4 class="modal-title">Suggest Change</h4>
+    </div>
+    <div class="app-modal-body">
+        <div *ngIf="showAlter"><span class="alert-text">Suggest change cannot be empty.</span></div>
+        <div class="col-md-12 well">
+            In a few words, explain why you rejected the pathway, and suggestions for your report to improve it to meet your mutual learning goals. We also suggest having an offline conversation with them.
+        </div>
+        <textarea (focus)="onFocus($event)" class="form-control" rows="10" id="comment" [(ngModel)]='comments'></textarea>
+    </div>
+    <div class="app-modal-footer text-center">
+        <button type="button" (click)="submitComments($event)" class="suggest-change-btn">Send/Submit</button>
+    </div>
+
+</msg-model-popup> -->

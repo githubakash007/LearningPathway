@@ -1,0 +1,149 @@
+<div class="container">
+    <div class="summary-box">
+
+        <div id="summeryHeader">
+            <div class="row text-center" [hidden]="!showSubmit">
+                <div class="col-xs-6 col-xs-offset-3 text-center">
+                    <span>{{currentEmployeeName}}, here is your customized Learning Pathway.</span>
+                    <span>Please, take another look at it and submit for your manager's approval if everything looks good.</span>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="text-center">
+                        <b>Total hours of studies:&nbsp;{{totalSelectedCourseHours | number:'1.1-1'}} h </b>(out of {{maxHours}} max)
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="text-center">
+                        <b>Total Cost:&nbsp;{{totalSelectedCourseCost | currency}}</b>
+                    </p>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <div class="btn-box text-center" [hidden]="!showSubmit">
+                        <!-- <a href="#" [routerLink]="['./../']" class="go-back-btn">&lt;&nbsp;&nbsp;GO BACK</a> -->
+                        <a href="#" (click)="goBack($event)" class="go-back-btn">&lt;&nbsp;&nbsp;GO BACK</a>
+                        <a href="#" (click)="submitCurriculum($event)" class="create-path-btn">SUBMIT</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center" [hidden]="showSubmit">
+                <div class="col-xs-6 col-xs-offset-3 text-center">
+                    <span class="glyphicon glyphicon-ok-sign"></span>
+                    <span>Done. You've submitted the pathway to your manager. you will receive a</span>
+                    <span>notification as soon as the manager changes the status of your request.</span>
+                </div>
+
+            </div>
+            <hr />
+
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <span class="text-upper font-weight650"> YOUR {{employeeRoleName}} PATHWAY 2018 SELECTION</span>
+                    <span [hidden]="showSubmit" class="pathway-status" [ngClass]="{'info':messageType==='info','success':messageType==='success','error':messageType==='error'}">{{pathwayStatus}}</span>
+                </div>
+            </div>
+            <div class="row" [hidden]="showSubmit || isCurriculumDefault">
+                <div class="col-xs-11 text-center">
+                    <span class="edit-btn-text">Reset pathway</span>
+                    <button type="button" class="btn btn-default edit-btn" (click)="confirmResetPathway($event)" aria-label="Left Align">
+                        <span class=" glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="summeryBody" class="summary-body">
+            <div class="row">
+                <learner-course-summary [inputLearnerCourseList]="foundationalCourseList" [title]="'Foundational Skills'"></learner-course-summary>
+
+            </div>
+            <hr />
+            <div class="row">
+                <learner-course-summary [inputLearnerCourseList]="functionalCourseList" [title]="'Functional Skills'"></learner-course-summary>
+            </div>
+            <hr />
+            <div class="row">
+                <learner-course-summary [inputLearnerCourseList]="enrichmentCourseList" [title]="'Enrichment'"></learner-course-summary>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="text-center">
+                    <b>Total hours of studies:&nbsp;{{totalSelectedCourseHours | number:'1.1-1'}} h </b>(out of {{maxHours}} max)
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="text-center">
+                    <b>Total Cost:&nbsp;{{totalSelectedCourseCost | currency}}</b>
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row well user-note" [hidden]="!showNote">
+            <span class="col-xs-1 text-center user-note-heading">
+                <b>Note:</b>
+            </span>
+            <span class="col-xs-11"> You have selected a classroom or external enrichment course as part of your FY18 Pathway. Please be aware of
+                scheduling details and costs to your cost center for taking these courses. Please obtain explicit manager
+                approval for these courses when you confirm your pathway. </span>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <div class="btn-box text-center" [hidden]="!showSubmit">
+                    <!-- <a href="#" [routerLink]="['./../']" class="go-back-btn">&lt;&nbsp;&nbsp;GO BACK</a> -->
+                    <a href="#" (click)="goBack($event)" class="go-back-btn">&lt;&nbsp;&nbsp;GO BACK</a>
+                    <a href="#" (click)="submitCurriculum($event)" class="create-path-btn">SUBMIT</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<app-modal #modal></app-modal>
+
+<msg-model-popup [inputModalPopupSizeClass]="'modal-sm'" #msgModal>
+    <div class="app-modal-body">
+        <span>{{submitValidationMsg}}</span>
+    </div>
+    <div class="app-modal-footer text-center">
+        <button type="button" (click)="hideDialog($event)" class="btn btn-primary button-oval-shape">GOT IT</button>
+    </div>
+
+</msg-model-popup>
+
+<msg-model-popup [inputModalPopupSizeClass]="'modal-sm'" #resetMsgModal>
+    <div class="app-modal-header">
+        <div class="row close-button-margin">
+            <button aria-label="Close" class="close" (click)="cancelReset($event)" data-dismiss="modal" type="button">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+    </div>
+    <div class="app-modal-body">
+        <span class="reset-confirm-msg">{{resetConfirmationMsg}}</span>
+    </div>
+    <div class="app-modal-footer text-center">
+        <button type="button" (click)="resetPathway($event)" class="btn btn-primary button-oval-shape reset-pathway">RESET PATHWAY</button>
+        <!-- <button type="button" (click)="cancelReset($event)" class="btn btn-primary button-oval-shape">CANCEL</button> -->
+    </div>
+   
+</msg-model-popup>

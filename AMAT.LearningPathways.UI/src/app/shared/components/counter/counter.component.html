@@ -1,0 +1,21 @@
+<div class="containerfluid">
+  <div class="row">
+    <div class="col-xs-7 col-xs-push-3">
+      <span>{{requiredHourText}}</span>
+    </div>
+    <div class="col-xs-2">
+      <div class="row">
+        <div class="col-xs-4">
+          <span class="glyphicon glyphicon-minus" (click)="decrease()"></span>
+        </div>
+        <div class="col-xs-4">
+          <input type="number" [ngModel]="initialRequiredHours" readonly />
+        </div>
+        <div class="col-xs-4">
+          <span class="glyphicon glyphicon-plus" (click)="increase()"> </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

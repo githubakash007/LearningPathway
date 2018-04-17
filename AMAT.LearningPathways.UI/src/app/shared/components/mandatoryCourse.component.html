@@ -1,0 +1,71 @@
+<div [hidden]="mandatoryCurriculumList?.length === 0">
+    <div class="course-list-container">
+        <!-- <div class="row">
+      <div class="col-md-12">
+        <div class="pull-left title">
+          <!-- <span class="course-list-container__span">{{skill}} Courses</span> -->
+        <!-- <span class="course-list-container__span">Required {{skillName}} Courses</span>
+        </div>
+      </div>
+    </div> -->
+
+        <div class="course-list-header">
+            <div class="row">
+                <!-- <div class="col-md-1"></div> -->
+                <div class="col-xs-7 text-left">
+                    <!-- <span class="course-list-container__span">Mandatory {{skillName}} Courses</span> -->
+                </div>
+                <div class="col-xs-3"></div>
+                <div class="col-xs-2 text-center summation-badge">
+                    <summation-badge [inputCourseList]="mandatoryCurriculumList"></summation-badge>
+                </div>
+            </div>
+        </div>
+        <div class="course-list-body">
+            <div class="row" *ngFor="let c of mandatoryCurriculumList">
+                <!-- <div class="col-xs-1 col-xs-1 col-md-1 text-left">
+                    <span data-toggle="tooltip" title={{c.CourseTypeDesc}} trigger='hover' placement='left' [ngClass]="{'basic':c.CourseType ==='Basic','intermediate': c.CourseType ==='Intermediate','advance':c.CourseType==='Advanced','no-course-type': c.CourseType==='notype'}"></span>
+                </div> -->
+                <div class="col-xs-3  text-left">
+                    <span data-toggle="tooltip" title={{c.CourseTypeDesc}} trigger='hover' placement='left' [ngClass]="{'basic':c.CourseType ==='Basic','intermediate': c.CourseType ==='Intermediate','advance':c.CourseType==='Advanced','no-course-type': c.CourseType==='notype'}"></span>
+                    <label class="pde">{{c.CourseId}}</label>
+
+                </div>
+                <div class="col-xs-3  text-left">
+                    <a class="course" href="#" (click)="modal.show($event,c.CourseId,false,undefined,c.IsMandatory)">{{c.CourseName}}</a>
+                </div>
+                <div class="col-xs-4  text-left">
+                    <span class="customer">{{c.CompetencyList.join()}}</span>
+
+                </div>
+                <div class="col-xs-2 text-right">
+                    <label class="Time">{{c.Duration}} h</label>
+                    <span (click)="deleteCourse(c)" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                    <span (click)="makeCourseElective(c)" class="glyphicon glyphicon-star mandatoryStar" aria-hidden="true"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div [hidden]="mandatoryCurriculumList?.length > 0">
+    <div class="course-list-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pull-left title">
+                    <!-- <span class="course-list-container__span">{{skillName}} Courses</span> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <span class="no-skills">Add {{skillName}} courses to the {{currentSelectedAdminRole}} Pathway. By default they are added as electives, mark the mandatory ones using the star.<span class="glyphicon glyphicon-plus-sign GrayFont pull-right" aria-hidden="true"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-modal #modal></app-modal>

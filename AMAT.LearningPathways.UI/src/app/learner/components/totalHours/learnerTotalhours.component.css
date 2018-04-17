@@ -1,0 +1,122 @@
+ul.Details {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    border-bottom: 1px solid #ECECEA;
+    text-align: center;
+}
+
+ul.Details li.YourPath {
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 30px 0px 10px;
+    text-align: left;
+}
+
+ul.Details li.Time {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+ul.Details li.Time span.Number {
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 32px;
+    vertical-align: top;
+}
+
+ul.Details li.Time span.Hours {
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 12px;
+    line-height: 17px;
+    width: 70px;
+    text-transform: uppercase;
+    display: inline-table;
+    word-wrap: break-word;
+    margin-left: 8px;
+    vertical-align: top;
+}
+
+ul.Details li.Alert {
+    color: #FF5454;
+    font-family: "Open Sans";
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 0;
+}
+
+ul.Details li.Time span.Number {
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 32px;
+    vertical-align: top;
+}
+
+.hour {
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 12px;
+    line-height: 15px;
+    width: 120px;
+    text-transform: uppercase;
+    display: inline-table;
+    word-wrap: break-word;
+    margin-left: 8px;
+    vertical-align: top;
+}
+
+ul.Details li.Time span.MaxHours {
+    color: #53565A;
+    font-family: "Open Sans";
+    font-size: 13px;
+    line-height: 15px;
+    width: 150px;
+    /* text-transform: uppercase; */
+    display: inline-table;
+    word-wrap: break-word;
+    /* margin-left: 8px; */
+    vertical-align: top;
+    margin-top: -5px;
+}
+
+.hours-text {
+    margin-left: 0px !important;
+    text-align: left;
+}
+
+.FullHour {
+    color: #53565a;
+    font-family: Open Sans;
+    vertical-align: top;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+
+/* span.Hours {
+    color: #53565a;
+    font-family: Open Sans;
+    font-size: 12px;
+    line-height: 15px;
+    width: 70px;
+    text-transform: uppercase;
+    display: inline-table;
+    word-wrap: break-word;
+    margin-left: 8px;
+    vertical-align: top;
+    margin-left: 15px;
+    text-align: left;
+} */
+
+.total-hour-number {
+    float: left;
+    max-width: 90px;
+}

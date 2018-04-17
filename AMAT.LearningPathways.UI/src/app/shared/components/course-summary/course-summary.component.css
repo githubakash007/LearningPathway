@@ -1,0 +1,71 @@
+.course-summary-header {
+    margin-bottom: 8px;
+}
+
+.title {
+    color: #242527;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-left: -10px;
+}
+
+.course-summary-body {
+    line-height: 1.9;
+}
+
+.course-summary-box {
+    background-color: white;
+    padding: 20px;
+}
+
+.course-summary-body span {
+    font-size: small;
+    font-style: normal;
+    color: dimgrey;
+    font-variant-caps: inherit;
+}
+
+.mandatoryStar {
+    color: orangered !important;
+}
+
+.glyphicon {
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    font-family: 'Glyphicons';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    font-size: medium !important;
+}
+
+.padding-0 {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.padding-2 {
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.padding-left-0 {
+    padding-left: 0px !important;
+}
+
+.padding-right-0 {
+    padding-right: 0px !important;
+}
+
+.vertically-center {
+    display: flex;
+    align-items: center;
+}
+
+.row-hover {
+    border: 2px dashed blue;
+}

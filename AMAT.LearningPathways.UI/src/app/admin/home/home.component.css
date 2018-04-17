@@ -1,0 +1,71 @@
+button.proceed-btn {
+    border-radius: 100px;
+    background-color: #00B948;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    padding: 3px 20px;
+    text-decoration: none;
+}
+
+.btn-box {
+    width: 100%;
+    /* margin-top:20px; */
+}
+
+.box-margin {
+    margin: 40px;
+}
+
+.infoMessage {
+    color: #242527;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.Invite {
+    color: #1B1C1D;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    /* margin-top: 20px; */
+}
+
+.clone-title {
+    color: #1B1C1D;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: normal;
+    /* text-align: center; */
+    /* margin-top: 20px; */
+}
+
+.Owners {
+    min-height: 300px;
+    overflow: auto;
+    max-height: 400px;
+}
+
+.Owners table th {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.thead-default th {
+    color: #495057;
+    background-color: #e9ecef;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #e9ecef;
+}
+
+
+
+
+

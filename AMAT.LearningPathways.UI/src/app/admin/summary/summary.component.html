@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="summary-box">
+
+        <div id="summeryHeader">
+            <!-- <div class="row  text-right">
+                <button class="btn btn-primary" (click)="downloadCurriculum($event)">Download Curriculum</button>
+            </div> -->
+            <div class="row  text-center">
+                <p class="summary-header-title">{{currentSelectedAdminRole}} PATHWAY 2018</p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <p class="text-center"> {{employeeFirstName}}, here are the courses you are about to recommend for {{currentSelectedAdminRole}}
+                        Learning Pathway 2018.</p>
+                    <!-- <p class="text-center">We recommend that the maximum volumn of studies is 20 hours for required courses and 15 hours for electives.
+          </p> -->
+                </div>
+            </div>
+        </div>
+
+        <div id="cutoffHourSection">
+            <div class="row">
+                <div class="col-xs-12 col-xs-push-2 cutoffHourSection-header">
+                    <span class="cutoffHourSection-header-title">1. Set the cutoff for required courses</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <hour-counter [initialRequiredHours]="cutOffRequiredHour" [requiredHourText]="'Hours of required courses per year'" (hourChange)="cutOffHourChange($event)"></hour-counter>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-xs-12 col-xs-push-2 cutoffHourSection-header">
+                    <span class="cutoffHourSection-header-title">2. Reorder courses in a sequence they should be taken (drag and drop)</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="row">
+        <div class="col-xs-12 text-center">
+          <p>Process Engineer Pathway 2018</p>
+          <hr/>
+        </div>
+      </div> -->
+
+
+        <div id="summeryBody" class="summary-body" [hidden]="requiredCourseList?.length === 0 && electiveCourseList?.length ===0">
+            <div class="row">
+                <!-- <course-summary [inputCourseList]="requiredCourseList" [isRequired]="true" [title]="'Required Courses'"></course-summary> -->
+                <dnd-course-summary [inputRequiredCourseList]="requiredCourseList" [isRequired]="true" [title]="'Required Courses'" [cutOffHour]="cutOffRequiredHour"></dnd-course-summary>
+            </div>
+            <hr />
+            <div class="row">
+                <course-summary [inputCourseList]="electiveCourseList" [isRequired]="false" [title]="'Electives'"></course-summary>
+            </div>
+        </div>
+
+        <div [hidden]="!(requiredCourseList?.length === 0 && electiveCourseList?.length ===0)">
+            <div class="row text-center">
+                <span class="error-text">No Course Summary !!</span>
+            </div>
+        </div>
+
+
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <div class="btn-box">
+                    <!-- <a href="#" [routerLink]="['./../']" class="go-back-btn">&lt;&nbsp;&nbsp;GO BACK</a> -->
+                    <a href="#" (click)="goBack($event)" class="go-back-btn">&lt;&nbsp;&nbsp;GO BACK</a>
+                    <a href="#" (click)="SaveCurriculum($event)" class="create-path-btn">SAVE AS DRAFT</a>
+                    <a href="#" (click)="createPathway($event)" class="create-path-btn">CREATE PATH</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<app-modal #modal></app-modal>

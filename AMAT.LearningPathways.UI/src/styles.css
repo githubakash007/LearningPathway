@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+html,body{
+    background-color: #fafafa !important ;
+    margin-bottom: "5%";
+    font-family: "Open Sans"; 
+    /* margin-top:5%; */
+}
+
+.no-course-type:before {
+    content: ' ';
+    position: absolute;
+    background: grey;
+    font-size: 51px;
+    top: 7px;
+    height:8px;
+    width:8px;
+    left: 2px;
+    line-height: 0;
+    border-radius: 50%;
+}
+.advance:before {
+    content: ' ';
+    position: absolute;
+    background: red;
+    font-size: 51px;
+    top: 7px;
+    height:8px;
+    width:8px;
+    left: 2px;
+    line-height: 0;
+    border-radius: 50%;
+}
+
+.intermediate:before {
+    content: ' ';
+    position: absolute;
+    background: yellow;
+    font-size: 51px;
+    top: 7px;
+    height:8px;
+    width:8px;
+    left: 2px;
+    line-height: 0;
+    border-radius: 50%;
+}
+
+.basic:before {
+    content: ' ';
+    position: absolute;
+    background: green;
+    font-size: 51px;
+    top: 7px;
+    height:8px;
+    width:8px;
+    left: 2px;
+    line-height: 0;
+    border-radius: 50%;
+}
+
+.glyphicon{
+cursor: pointer;
+}
+
+.button-oval-shape{
+    border-radius: 50px;
+  }
+
+  .header-rolename{
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-family: "Open Sans";
+    font-size: small;
+    text-transform: uppercase;
+}
+
+.header-rolename > span{
+    transform: scale(1,1.1);
+    font-size: 13px;
+    display: inline-block;
+}
+
+.cdk-overlay-container{
+    z-index: 10000 !important;
+}
+
+
