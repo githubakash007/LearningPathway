@@ -11,7 +11,8 @@ import { IFilterEmployeeCriteria } from '../employee/model/IFilterEmployeeCriter
 import { IFilterCoursesCriteria } from '../coursecatalog/model/IFilterCoursesCriteria';
 import { IEmployeeDetails } from '../../shared/model/fileupload.interface'
 import { ICourse } from '../../admin/services/ICurriculum';
-
+import { ResourceLoader } from '@angular/compiler';
+import { SuperAdminConst } from '../enum/superAdminConst.enum';
 @Injectable()
 export class SuperAdminService {
 
@@ -65,6 +66,21 @@ export class SuperAdminService {
                callback(true);
             }
        });
+    }
+
+    //Added Missing method
+    AddCourse(input:ICourseCatalog,callback:(result:SuperAdminConst)=>void):void{
+        this._interceptor.post(this.getRelativeUrl(SuperAdminApiName.addNewCourse),input).subscribe(result=>{
+            if(result == SuperAdminConst.courseAdded){
+                callback(SuperAdminConst.courseAdded);
+            }
+            else if(result == SuperAdminConst.duplicateCourse){
+                callback(SuperAdminConst.duplicateCourse);
+            }
+            else{
+                callback(SuperAdminConst.error);
+            }
+        })
     }
 
 

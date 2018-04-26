@@ -12,6 +12,13 @@ import { EmployeeDetailsComponent } from './employee/employee-details/employee-d
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeDialogComponent } from './employee/employee-dialog/employee-dialog.component';
 
+import {CourseAddComponent} from '../super-admin/coursecatalog/course-add/course-add.component'
+
+import {CourseEditComponent} from '../super-admin/coursecatalog/course-edit/course-edit.component'
+import {CourseListComponent} from '../super-admin/coursecatalog/course-list/course-list.component'
+
+//import {TestDetailsComponent} from '../super-admin/test.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -30,10 +37,17 @@ import { EmployeeDialogComponent } from './employee/employee-dialog/employee-dia
   declarations: [
     EmployeeListComponent, 
     EmployeeDetailsComponent,
-    EmployeeDialogComponent
+    EmployeeDialogComponent,
+    CourseAddComponent,
+    CourseEditComponent,
+    CourseListComponent,
+    //TestDetailsComponent
+
   ],
   entryComponents:[
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    CourseEditComponent,
+    CourseAddComponent
   ],
   providers:[
     

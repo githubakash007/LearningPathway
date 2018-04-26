@@ -11,7 +11,7 @@ import { MatPaginator, MatTableDataSource, MatSort, MatSortable, PageEvent, MatD
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { merge } from "rxjs/observable/merge";
 import { CourseEditComponent } from '../course-edit/course-edit.component';
-
+import { CourseAddComponent } from '../course-add/course-add.component';
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
@@ -36,12 +36,18 @@ export class CourseListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        const foundIndex = this.coursedatasource.courseSubject.value.findIndex(x => x.AGU_CODE === result.AGU_CODE);
-        this.coursedatasource.courseSubject.value[foundIndex] = result;
+        let foundIndex = this.coursedatasource.courseSubject.value.findIndex(x => x.AGU_CODE === result.AGU_CODE);
+        this.coursedatasource.courseSubject.value[foundIndex] = <ICourseCatalog>result;
         this.coursedatasource.courseSubject.next(this.coursedatasource.courseSubject.value);
       }
     });
 
+  }
+  openCourseAdd() {
+    let dialogRef = this._matDialog.open(CourseAddComponent, {
+      width: '60%',
+      height:'auto',
+    });
   }
 
  
